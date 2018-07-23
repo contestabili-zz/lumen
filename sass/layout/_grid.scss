@@ -1,0 +1,41 @@
+// /******
+//   Layout Styles may include:
+//   — General
+//   — Media Queries
+// /******
+
+// Styles
+.lumen-grid_row {
+  @include groupfix();
+
+  @include margin-top (20);
+
+  &:first-child {
+    @include margin-top (0);
+  }
+}
+[class^="lumen-grid_col-"] {
+  min-height: 30px;
+  box-sizing: border-box;
+  //outline: 1px solid $lumen-color1;
+  float: left;
+  padding: 0 10px;
+  text-align: center;
+  // background-color: gray;
+  //display: flex;
+  // align-items: center;
+  // justify-content: space-around;
+
+  &:first-child {
+    @include margin-left (0);
+    @include padding-left (0);
+  }
+  &:last-child {
+    @include margin-right (0);
+    @include padding-right (0);
+  }
+}
+.lumen-grid_col--centre {
+  float: initial;
+  margin: auto !important;
+}

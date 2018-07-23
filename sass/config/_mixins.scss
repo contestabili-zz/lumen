@@ -1,0 +1,244 @@
+/******
+  Mixins Styles may include:
+  —
+*******/
+
+// font-rem adds font-size and line-height in rem with a px fallback  | @include rhythm(00, 00);
+@mixin font-rem($font-size, $line-height: 0) {
+  font-size: $font-size + px;
+  font-size: ($font-size / $rem-base-font) * 1rem;
+  @if ($line-height > 0) {
+    line-height: $line-height + px;
+    line-height: ($line-height / $rem-base-font) * 1rem;
+  }
+}
+
+// Font smoothing | @include font-smoothing(on/off);
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+      -webkit-font-smoothing: subpixel-antialiased;
+      -moz-osx-font-smoothing: auto;
+  }
+}
+
+// Grid
+@mixin col($col) {
+  width: (($max-wrapper-width - $gutter-width*($cols/$col - 1))/($cols/$col))/$max-wrapper-width*100%;
+}
+@mixin groupfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Loop to create the grid
+@for $i from 0 through 12 {
+    .lumen-grid_col-#{$i} {
+        @include col($i);
+    }
+}
+
+// Font text optimize legibility | @include improve-legibility;
+@mixin improve-legibility {
+    text-rendering: optimizeLegibility;
+    @include text-shadow(0, 0, 1px, transparent);
+}
+
+// Font text-shadow | X Offset, Y Offset, Blur, RGBA Color | @include text-shadow(2, 2, 5, rgba(0,0,0,.4))
+@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4)) {
+    text-shadow: $x $y $blur $color;
+}
+
+// Box Shadow  | @include box-shadow;
+@mixin box-shadow {
+  -webkit-box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+// Transitions| @include transition(all 0.2s ease-out); | @include transition;
+@mixin transition {
+  -webkit-transition: $transition-speed;
+  -moz-transition: $transition-speed;
+  -ms-transition: $transition-speed;
+  -o-transition: $transition-speed;
+  transition: $transition-speed;
+}
+
+// Animations and keyframes | @include animation('slide-down 5s 3');
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+// Border Radius | @include border-radius(0);
+// https://codepen.io/contestabili/pen/yEXEKo?editors=1100
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius + px;
+  -moz-border-radius: $radius + px;
+  border-radius: $radius + px;
+}
+
+// Cross browser opacity | @include opacity(0.8);
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// Centerer | @include center(value) / both, top, right, bottom, left;
+// - https://codepen.io/ilokano/pen/mJxJPL
+@mixin center($pos:both ) {
+  position: absolute;
+
+  @if ($pos==both) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  } @else if ($pos==top) {
+    left: 50%;
+    transform: translate(-50%, 0);
+
+  } @else if ($pos==left) {
+    top: 50%;
+    transform: translate(0, -50%);
+  } @else if ($pos==right) {
+    top: 50%;
+    right:0;
+    transform: translate(0, -50%);
+  } @else if ($pos==bottom) {
+    bottom: 0;
+    left:50%;
+    transform: translate(-50%, 0);
+  }
+}
+
+// Clearfix | @include clearFix();
+// - https://coderwall.com/p/ad65fa/sass-clearfix-mixin
+@mixin clearFix(){
+  &:before,
+  &:after{
+    content: " ";
+    display: table;
+  }
+
+  &:after{
+    display: block;
+    clear: both;
+    height: 1px;
+    margin-top: -1px;
+    visibility: hidden;
+  }
+  &{
+    *zoom: 1;
+  }
+}
+// .clearfix {
+//     &:before,
+//     &:after {
+//         content: " ";
+//         display: table;
+//     }
+//     &:after {
+//         clear: both;
+//     }
+// }
+
+// Margins & Paddings
+// @include padding-top ();
+@mixin margin($margin) {
+  margin: $margin + px;
+  margin: (0.0625 * $margin) + rem;
+}
+@mixin margin-top($margin) {
+  margin-top: $margin + px;
+  margin-top: (0.0625 * $margin) + rem;
+}
+@mixin margin-right($margin) {
+  margin-right: $margin + px;
+  margin-right: (0.0625 * $margin) + rem;
+}
+@mixin margin-bottom($margin) {
+  margin-bottom: $margin + px;
+  margin-bottom: (0.0625 * $margin) + rem;
+}
+@mixin margin-left($margin) {
+  margin-left: $margin + px;
+  margin-left: (0.0625 * $margin) + rem;
+}
+// @mixin paddings($topBottom, $leftRight) {
+//   padding: $topBottom + px, $leftRight + px;
+//   // padding: (0.0625 * $topBottom) + rem, (0.0625 * $leftRight) + rem;
+// }
+@mixin padding($padding) {
+  padding: $padding + px;
+  padding: (0.0625 * $padding) + rem;
+}
+@mixin padding-top($padding) {
+  padding-top: $padding + px;
+  padding-top: (0.0625 * $padding) + rem;
+}
+@mixin padding-right($padding) {
+  padding-right: $padding + px;
+  padding-right: (0.0625 * $padding) + rem;
+}
+@mixin padding-bottom($padding) {
+  padding-bottom: $padding + px;
+  padding-bottom: (0.0625 * $padding) + rem;
+}
+@mixin padding-left($padding) {
+  padding-left: $padding + px;
+  padding-left: (0.0625 * $padding) + rem;
+}
+
+// Margins & Paddings | @include margin-padding(all, 5% 0, bottom, 5%); | @include margin-padding(all, 0 auto 5%, null, null);
+// https://stackoverflow.com/questions/45194144/why-use-mixin-of-padding-and-margin-in-sass
+// @mixin margin-padding($m-direction, $m-amount, $p-direction, $p-amount) {
+//   @if $m-direction == all {
+//     margin: $m-amount;
+//   } @else {
+//     margin-#{$m-direction}: $m-amount;
+//   }
+//   @if $p-direction == all {
+//     padding: $p-amount;
+//   } @else {
+//     padding-#{$p-direction}: $p-amount;
+//   }
+
+
+// SASS Percent Grid |
+
+// Media Responsive Queries | @include respond-to(media-type-here)
+// https://coderwall.com/p/h-dzpa/media-queries-sass-mixin
+@mixin respond-to($media) {
+    @media only screen and #{$media} {
+        @content;
+    }
+}

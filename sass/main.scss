@@ -1,0 +1,60 @@
+@charset "UTF-8";
+// Importing All Global Styles
+
+@import 'config/rest';
+@import 'config/variables';
+@import 'config/mixins';
+@import 'config/base';
+
+@import 'layout/grid';
+@import 'layout/layout';
+// @import "vendor/plumber";
+@import 'modules/buttons';
+@import 'modules/typography';
+@import 'modules/colors';
+
+
+// Temp code
+.header {
+  font-weight: 300;
+  color: $lumen-color1;
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.header .title {
+  font-size: 50px;
+  line-height: 80px;
+  width: 65%;
+}
+
+.header .subtitle {
+  font-size: 18px;
+  /* line-height: 50px; */
+}
+.header .author {
+  display: none;
+}
+.header .header-cta {
+  position: absolute;
+  top: 1.5rem;
+  right: 0rem;
+  margin: 0;
+  width: 25%;
+  min-width: 260px;
+}
+.color-tile {
+  width: 100px;
+  height: 45px;
+  display: inline-block;
+  text-align: center;
+  margin-right: 16px;
+}
+.color-code {
+  width: 100%;
+  height: 45px;
+  margin-bottom: 16px;
+  content: "";
+  @include border-radius(100);
+  border: 1px solid $lumen-color1;
+}

@@ -1,0 +1,49 @@
+/******
+  Varibles Styles may include:
+  —
+*******/
+
+// Typography
+// Typekit | If you’re using a plugin or service that asks for a Typekit Kit ID, use this: wbv8ico
+@import url("https://use.typekit.net/wbv8ico.css");
+
+$lumen-font-raleway: "raleway",sans-serif;
+$lumen-font-bookmania: "bookmania",serif;
+$rem-base-font: 16;
+
+// Color
+$lumen-color1: #0B2924;
+$lumen-color2: #EEE5DE;
+$lumen-color3: #FFFFFF;
+$lumen-color4: #edf1f2;
+$lumen-color5: #404040;
+
+// Grid
+$cols: 12;
+$max-wrapper-width: 1367px;
+$gutter-width: 0px;
+
+// Shapes & Buttons
+$radius: 5;
+
+// Motion
+$transition-speed: all 0.3s ease-in-out;
+
+
+// Media Responsive Queries Variable | @include respond-to(media-type-here)
+// Desktop HD: 1200px
+// Desktop: 1000px
+// Tablet: 750px
+// Phablet: 550px
+// Mobile: 400px
+$phone: "(max-width: 480px)";
+$tablet-portrait: "(max-width: 767px)";
+$tablet-landscape: "(min-width: 768px) and (max-width: 979px)";
+$large-desktop: "(min-width: 1367px)";
+$non-retina: "screen and (-webkit-max-device-pixel-ratio: 1)";
+$retina: "(min--moz-device-pixel-ratio: 1.5),
+                    (-o-min-device-pixel-ratio: 3/2),
+                    (-webkit-min-device-pixel-ratio: 1.5),
+                    (min-device-pixel-ratio: 1.5),
+                    (min-resolution: 144dpi),
+                    (min-resolution: 1.5dppx)";

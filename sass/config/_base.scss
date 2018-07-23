@@ -1,0 +1,45 @@
+/******
+  Base Styles may include:
+  — ...
+*******/
+
+html,
+body {}
+body {
+  //min-width: 400px;
+  max-width: 1367px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  height: 100%;
+  @include padding (20);
+  color: $lumen-color1;
+  background-color: $lumen-color2;
+
+  @include respond-to($phone) {
+    // Mobile stylesheet
+  }
+  @include respond-to($tablet-landscape) {
+    // Tablet L
+  }
+  @include respond-to($tablet-portrait) {
+    // Tablet P
+  }
+
+}
+
+input[type=text] {
+  /* Some CSS properties */
+}
+a {
+  /* Some CSS properties */
+}
+a:hover {
+  /* Some CSS properties */
+}
+p > span {
+  /* Some CSS properties */
+}
+span + span {
+  /* Some CSS properties */
+}

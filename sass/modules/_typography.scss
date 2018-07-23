@@ -1,0 +1,54 @@
+/******
+  Type Styles may include:
+  —
+*******/
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    @include font-rem(16, 24);
+    @include font-smoothing(on);
+    @include text-shadow(0, 0, 1px, rgba(0, 0 , 0, .01));
+    @include improve-legibility;
+}
+
+.lumen_title {
+  font-family: $lumen-font-bookmania;
+  font-weight: 800;
+
+  &-hero {
+    @include font-rem(112, 140);
+  }
+  &-xxl {
+    @include font-rem(96, 120);
+  }
+  &-xl {
+    @include font-rem(80, 100);
+  }
+  &-l {
+    @include font-rem(64, 80);
+  }
+  &-m {
+    @include font-rem(48, 60);
+  }
+  &-s {
+    @include font-rem(32, 40);
+    @include font-smoothing(off);
+  }
+  &-xs {
+    @include font-rem(16, 20);
+    @include font-smoothing(off);
+  }
+}
+.lumen_c {
+  font-family: $lumen-font-raleway;
+  font-weight: 400;
+  @include font-rem(16, 24);
+
+  &-s {
+    font-weight: 200;
+    @include font-rem(14, 20);
+    @include font-smoothing(off);
+
+  }
+}
