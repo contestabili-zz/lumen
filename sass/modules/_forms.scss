@@ -1,0 +1,22 @@
+/******
+  Froms Styles may include:
+  —
+*******/
+
+// input[type=text]
+.lumen_input-lable {}
+
+.lumen_input {
+  box-sizing: border-box;
+  border: 1px solid #C1C1C1;
+  @include border-radius($radius);
+  padding: 10px 10px;
+}
+
+.lumen_input-textarea {
+  width: 100%;
+}
+.lumen_input-submit {
+  width: 135px;
+  cursor: pointer;
+}

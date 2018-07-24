@@ -1,7 +1,5 @@
 // /******
 //   Layout Styles may include:
-//   — General
-//   — Media Queries
 // /******
 
 // Styles
@@ -14,13 +12,14 @@
     @include margin-top (0);
   }
 }
+
 [class^="lumen-grid_col-"] {
   min-height: 30px;
   box-sizing: border-box;
   //outline: 1px solid $lumen-color1;
   float: left;
   padding: 0 10px;
-  text-align: center;
+  //text-align: center;
   // background-color: gray;
   //display: flex;
   // align-items: center;
