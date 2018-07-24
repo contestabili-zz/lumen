@@ -30,20 +30,40 @@ $radius: 5;
 $transition-speed: all 0.3s ease-in-out;
 
 
-// Media Responsive Queries Variable | @include respond-to(media-type-here)
-// Desktop HD: 1200px
-// Desktop: 1000px
-// Tablet: 750px
-// Phablet: 550px
-// Mobile: 400px
-$phone: "(max-width: 480px)";
-$tablet-portrait: "(max-width: 767px)";
-$tablet-landscape: "(min-width: 768px) and (max-width: 979px)";
-$large-desktop: "(min-width: 1367px)";
-$non-retina: "screen and (-webkit-max-device-pixel-ratio: 1)";
-$retina: "(min--moz-device-pixel-ratio: 1.5),
-                    (-o-min-device-pixel-ratio: 3/2),
-                    (-webkit-min-device-pixel-ratio: 1.5),
-                    (min-device-pixel-ratio: 1.5),
-                    (min-resolution: 144dpi),
-                    (min-resolution: 1.5dppx)";
+// Media Variable | @include respond-to(media-type-here)
+// Source https://css-tricks.com/snippets/css/media-queries-for-standard-devices/
+
+// iPhone 4 and 4S Portrait and Landscape
+$iphone-4:" (min-device-width: 320px)
+            and (max-device-width: 480px)
+            and (-webkit-min-device-pixel-ratio: 2)";
+
+// iPhone 5, 5S, 5C and 5SE Portrait and Landscape
+$iphone-5:" (min-device-width: 320px)
+            and (max-device-width: 568px)
+            and (-webkit-min-device-pixel-ratio: 2)";
+
+// iPhone 6, 6S, 7 and 8 Portrait and Landscape
+$iphone-6:" (min-device-width: 375px)
+            and (max-device-width: 667px)
+            and (-webkit-min-device-pixel-ratio: 2)";
+
+// iPhone 6+, 7+ and 8+ Portrait and Landscape
+$iphone-6-plus:" (min-device-width: 414px)
+                 and (max-device-width: 736px)
+                 and (-webkit-min-device-pixel-ratio: 3)";
+
+// iPhone X Portrait and Landscape
+$iphone-10:" (min-device-width: 375px)
+             and (max-device-width: 812px)
+             and (-webkit-min-device-pixel-ratio: 3)";
+
+// iPad 1, 2, Mini and Air Portrait and Landscape
+$ipad-mini:" (min-device-width: 768px)
+           and (max-device-width: 1024px)
+           and (-webkit-min-device-pixel-ratio: 1)";
+
+// iPad 3, 4 and Pro 9.7 Portrait and Landscape
+$ipad-pro:" (min-device-width: 768px)
+             and (max-device-width: 1024px)
+             and (-webkit-min-device-pixel-ratio: 2)";

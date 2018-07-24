@@ -1,51 +1,42 @@
 // /******
 //   Layout Styles may include:
-//   — General
-//   — Media Queries
-//   | https://neat.bourbon.io/docs/latest/
 // *******/
-
-// @import "grid"; | Works but not the best
-
-//
-// .grid {
-//   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" version="1.1"><rect style="fill:#ff6600;fill-opacity:1;" width="48" height="1" x="0" y="23" /><rect style="fill:#ff6600;fill-opacity:0.3;" width="48" height="1" x="0" y="7" /><rect style="fill:#ff6600;fill-opacity:1;" width="48" height="1" x="0" y="47" /><rect style="fill:#ff6600;fill-opacity:0.3;" width="48" height="1" x="0" y="31" /><rect style="fill:#ff6600;fill-opacity:1;stroke:none" width="1" height="48" x="0" y="0" /><rect style="fill:#ff6600;fill-opacity:1;stroke:none" width="1" height="48" x="24" y="0" /></svg>');
-// }
-
-// Desktop HD: 1200px
-// Desktop: 1000px
-// Tablet: 750px
-// Phablet: 550px
-// Mobile: 400px
 
 .lumen-wrapper {
 
 }
 
+.questions {}
 
 //Margins Top
-.m-t-xl {
+.m-top-xl {
   margin-top: 64px;
 }
-.m-t-l {
+.m-top-l {
   margin-top: 48px;
 }
-.m-t-m {
+.m-top-m {
   margin-top: 32px;
 }
-.m-t-s {
+.m-top {
+  margin-bottom: 24px;
+}
+.m-top-s {
   margin-top: 16px;
 }
 //Margins Bottom
-.m-b-xl {
+.m-bottom-xl {
   margin-bottom: 64px;
 }
-.m-b-l {
+.m-bottom-l {
   margin-bottom: 48px;
 }
-.m-b-m {
+.m-bottom-m {
   margin-bottom: 32px;
 }
-.m-b-s {
+.m-bottom {
+  margin-bottom: 24px;
+}
+.m-bottom-s {
   margin-bottom: 16px;
 }

@@ -38,7 +38,7 @@
 }
 
 // Loop to create the grid
-@for $i from 0 through 12 {
+@for $i from 1 through 12 {
     .lumen-grid_col-#{$i} {
         @include col($i);
     }

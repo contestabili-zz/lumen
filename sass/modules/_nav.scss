@@ -1,0 +1,60 @@
+/******
+  Buttons Styles may include:
+  —
+*******/
+
+.lumen_btn {
+  width: 100%;
+  max-width: 250px;
+  font-family: $lumen-font-raleway;
+  @include font-rem(14, 20);
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  @include font-smoothing(off);
+  @include improve-legibility;
+  display: inline-block;
+  padding: 12px 0;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  @include border-radius($radius);
+  @include transition;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.lumen_btn-primary {
+  @extend .lumen_btn;
+  color: #fff;
+  background: $lumen-color1;
+  border: 1px solid $lumen-color1;
+  &:hover {
+    background: #09211C;
+    border: 1px solid #09211C;
+  }
+}
+
+.lumen_btn-transparent {
+  @extend .lumen_btn;
+  color: #fff;
+  background: transparent;
+  border: 1px solid #fff;
+  &:hover {
+    background: #141b20;
+    background: rgba(20,27,32,.1);
+  }
+}
+
+.lumen_btn-light {
+  @extend .lumen_btn;
+  color: $lumen-color1;
+  border: 1px solid #c3c6ce;
+  background: $lumen-color4;
+  &:hover {
+    background: #b6b9bf;
+  }
+}

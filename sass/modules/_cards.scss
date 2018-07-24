@@ -1,0 +1,12 @@
+/******
+  Froms Styles may include:
+  —
+*******/
+
+.question-card {
+  background-color: $lumen-color3;
+  padding: 40px;
+  box-sizing: border-box;
+  @include border-radius($radius);
+
+}
