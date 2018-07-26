@@ -25,25 +25,6 @@
   }
 }
 
-// Grid
-@mixin col($col) {
-  width: (($max-wrapper-width - $gutter-width*($cols/$col - 1))/($cols/$col))/$max-wrapper-width*100%;
-}
-@mixin groupfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
-// Loop to create the grid
-@for $i from 1 through 12 {
-    .lumen-grid_col-#{$i} {
-        @include col($i);
-    }
-}
-
 // Font text optimize legibility | @include improve-legibility;
 @mixin improve-legibility {
     text-rendering: optimizeLegibility;
@@ -140,24 +121,22 @@
   }
 }
 
+// Box-sizing | @include box-sizing(border-box);
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+     -moz-box-sizing: $box-model; // Firefox <= 19
+          box-sizing: $box-model;
+}
 // Clearfix | @include clearFix();
 // - https://coderwall.com/p/ad65fa/sass-clearfix-mixin
 @mixin clearFix(){
   &:before,
-  &:after{
-    content: " ";
-    display: table;
+  &:after {
+      content: "";
+      display: table;
   }
-
-  &:after{
-    display: block;
-    clear: both;
-    height: 1px;
-    margin-top: -1px;
-    visibility: hidden;
-  }
-  &{
-    *zoom: 1;
+  &:after {
+      clear: both;
   }
 }
 // .clearfix {
@@ -231,9 +210,6 @@
 //   } @else {
 //     padding-#{$p-direction}: $p-amount;
 //   }
-
-
-// SASS Percent Grid |
 
 // Media Responsive Queries | @include respond-to(media-type-here)
 // https://coderwall.com/p/h-dzpa/media-queries-sass-mixin

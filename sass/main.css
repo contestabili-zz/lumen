@@ -1,82 +1,107 @@
 @charset "UTF-8";
 /******
-  Global Reset:
-  — ...
-*******/
-@import url("https://use.typekit.net/wbv8ico.css");
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  /* vertical-align: baseline; */ }
-
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, main {
-  display: block; }
-
-/******
   Varibles Styles may include:
   —
 *******/
+@import url("https://use.typekit.net/wbv8ico.css");
 /******
   Mixins Styles may include:
   —
 *******/
-.lumen-grid_col-1 {
-  width: 8.3333333333%; }
-
-.lumen-grid_col-2 {
-  width: 16.6666666667%; }
-
-.lumen-grid_col-3 {
-  width: 25%; }
-
-.lumen-grid_col-4 {
-  width: 33.3333333333%; }
-
-.lumen-grid_col-5 {
-  width: 41.6666666667%; }
-
-.lumen-grid_col-6 {
-  width: 50%; }
-
-.lumen-grid_col-7 {
-  width: 58.3333333333%; }
-
-.lumen-grid_col-8 {
-  width: 66.6666666667%; }
-
-.lumen-grid_col-9 {
-  width: 75%; }
-
-.lumen-grid_col-10 {
-  width: 83.3333333333%; }
-
-.lumen-grid_col-11 {
-  width: 91.6666666667%; }
-
-.lumen-grid_col-12 {
-  width: 100%; }
-
 /******
   Base Styles may include:
-  — ...
+  — Global Reset
+  -
 *******/
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  list-style-type: none; }
+
+body {
+  line-height: 1; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+nav ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none; }
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
 body {
   max-width: 1367px;
   margin: 0 auto;
@@ -88,37 +113,40 @@ body {
   color: #0B2924;
   background-color: #EEE5DE; }
 
-.lumen-grid_row {
-  margin-top: 20px;
-  margin-top: 1.25rem; }
-  .lumen-grid_row:after {
+.lumen_grid {
+  margin: 0 0 20px 0; }
+  .lumen_grid:before, .lumen_grid:after {
     content: "";
-    display: table;
+    display: table; }
+  .lumen_grid:after {
     clear: both; }
-  .lumen-grid_row:first-child {
-    margin-top: 0px;
-    margin-top: 0rem; }
+  .lumen_grid [class*='lumen-grid_col-'] {
+    float: left; }
 
-[class^="lumen-grid_col-"] {
-  min-height: 30px;
-  box-sizing: border-box;
-  float: left;
-  padding: 0 10px; }
-  [class^="lumen-grid_col-"]:first-child {
-    margin-left: 0px;
-    margin-left: 0rem;
-    padding-left: 0px;
-    padding-left: 0rem; }
-  [class^="lumen-grid_col-"]:last-child {
-    margin-right: 0px;
-    margin-right: 0rem;
-    padding-right: 0px;
-    padding-right: 0rem; }
+[class*='lumen-grid_col-'] {
+  padding-right: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
-.lumen-grid_col--centre {
-  float: initial;
-  margin: auto !important; }
+.lumen-grid_col-2-3 {
+  width: 66.66%; }
 
+.lumen-grid_col-1-3 {
+  width: 33.33%; }
+
+.lumen-grid_col-1-2 {
+  width: 50%; }
+
+.lumen-grid_col-1-4 {
+  width: 25%; }
+
+.lumen-grid_col-1-8 {
+  width: 12.5%; }
+  .lumen-grid_col-1-8:last-of-type {
+    margin-right: 0; }
+
+/* Opt-in outside padding */
 .m-top-xl {
   margin-top: 64px; }
 
