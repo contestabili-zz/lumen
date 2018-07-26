@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lumen - Question 1</title>
+    
+    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://cdn.blockspring.com/blockspring.js"></script>
+    
+</head>
+<body>
+
+    <h1>What do you feel most grateful for in life right now?</h1>
+    <p>Previous answers:</p>
+    <p id="answer-1"></p>
+    <p id="answer-2"></p>
+    <p id="answer-3"></p>
+    <p id="answer-4"></p>
+    <p id="answer-5"></p>
+    <p>Your answer:</p>
+    <textarea id="new-answer"></textarea>
+    <button onclick="SubmitAnswer()">Submit</button>
+</body>
+    
+<script>
+    
+    $( document ).ready(function() {
+        
+        blockspring.runParsed("query-google-spreadsheet", {
+            // Here is where you need to decide what data you are grabbing with the Google query syntax
+            // I am finding elements that match the variable num, which is from a previous part of the code
+            // Google syntax makes you request columns with letters as opposed to your column titles.
+            "query": "SELECT A, B",
+            // This is the full URL of your sheet. Just copy and paste from your browser.
+            "url": "https://docs.google.com/spreadsheets/d/1T-cQY9HeagTqJjNuFVdr4HhhWbREPFiYvKtq7gQmRmQ/edit?usp=sharing" 
+            // Cache is false so that your browser does not run an old function when you change your code
+            }, { cache: false, expiry: 7200}, function(res) {
+            // All results are part of the res.params.data object.
+            // in my case, I requested two columns from my spreadsheet, one named skill and one named key.
+            // There is one matching row in this case, with two elements
+            var answers = res.params.data;
+            Shuffle(answers);
+            
+            document.getElementById("answer-1").innerHTML = answers[0]['answer'];
+            document.getElementById("answer-2").innerHTML = answers[1]['answer'];
+            document.getElementById("answer-3").innerHTML = answers[2]['answer'];
+            document.getElementById("answer-4").innerHTML = answers[3]['answer'];
+            document.getElementById("answer-5").innerHTML = answers[4]['answer'];
+      });
+    });
+    
+    function Shuffle(o) {
+        for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+    };
+    
+    function SubmitAnswer() {
+        
+        var answer = document.getElementById("new-answer").value;
+        console.log('answer: ' + answer);
+                
+        var data = {};
+        data[0] = answer;
+        
+        blockspring.runParsed("append-to-google-spreadsheet", {
+        // middle parameter from Google Spreadsheet URL 
+        // https://docs.google.com/spreadsheets/d/FILE_ID/edit?usp=sharing
+        "file_id": '1T-cQY9HeagTqJjNuFVdr4HhhWbREPFiYvKtq7gQmRmQ', 
+        // The first sheet within the particular doc will always be 0
+        "worksheet_id": 0,
+        //The array of arrays, as stated above 
+        "values": data},
+        //Provided on the page at https://open.blockspring.com/pkpp1233/append-to-google-spreadsheet
+        { "api_key": "c155f5a32843c24811a08f684545a5aa" }, 
+        function(res){
+            //console.log to check for errors
+            console.log(res);
+        });
+        
+        location.reload();
+    };
+    
+</script>
+</html>
