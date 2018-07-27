@@ -13,6 +13,43 @@
 @import 'modules/cards';
 @import 'modules/typography';
 @import 'modules/colors';
+// @import 'vendor/neat';
+//
+// $custom-grid--thirds: (
+// columns: 1,
+// gutter: 20px,
+// );
+//
+// ul.row {
+//    @include grid-container;
+//
+// }
+// .col-1-0 {
+//   @include grid-column(1, $custom-grid--thirds);
+//   text-align: center;
+// background-color: rebeccapurple
+// }
+
+// $custom-grid--thirds: (
+//   columns: 12,
+//   gutter: 20px,
+// );
+//
+// .my-grid {
+//
+// }
+// ul.row {
+//   @include grid-container;
+//
+// }
+// li.col-1-0 {
+//   @include grid-column(1, $custom-grid--thirds);
+//   // @include grid-column(1, $custom-grid--thirds);
+//   background-color: #343434;
+//   margin-bottom: 10px;
+// }
+
+
 
 
 // Temp code
