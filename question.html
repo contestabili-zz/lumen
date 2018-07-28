@@ -10,7 +10,8 @@
 <!--<script type="text/javascript" src="js/prompt-min.js"></script>-->
 </head>
 
-<body class="lumen-wrapper questions">
+  <body lang="en" class="lumen-wrapper questions">
+  <div class="lumen-content">
 <header class="header">
 <h1 class="lumen_title lumen_title-m"> Lumen</h1>
 <p class="lumen_c"> Dome Site</p>
@@ -24,7 +25,7 @@
 <h6 class="lumen_title lumen_title-xs m-bottom-s">Question Card</h6>
 
 <div class="lumen_grid">
-<div class="lumen-grid_col-1-2 question-card">
+<div class="lumen-grid_col-6"><div class="question-card">
 <h1 id="question-1" class="lumen_title lumen_title-m">What do you feel most grateful for in your life right now?</h1>
 <br>
 <p id="answer-1-1"></p>
@@ -34,10 +35,10 @@
 <p id="answer-1-5"></p>
 <textarea id="response-1" name="comment" class="lumen_input lumen_input-textarea lumen_c m-bottom-s" placeholder="Your response..."></textarea>
 <button id="submit-1" class="lumen_input lumen_input-submit lumen_btn lumen_btn-light" onclick="SubmitAnswerOne()">Submit</button>
-</div>
+</div></div>
 </div>
 <div class="lumen_grid">
-<div class="lumen-grid_col-1-2 question-card">
+<div class="lumen-grid_col-6"><div class="question-card">
 <h1 id="question-2" class="lumen_title lumen_title-m">When you think about the end of life, what is most important to you?</h1>
 <br>
 <p id="answer-2-1"></p>
@@ -47,10 +48,10 @@
 <p id="answer-2-5"></p>
 <textarea id="response-2" name="comment" class="lumen_input lumen_input-textarea lumen_c m-bottom-s" placeholder="Response"></textarea>
 <button id="submit-2" class="lumen_input lumen_input-submit lumen_btn lumen_btn-light" onclick="SubmitAnswerTwo()">Submit</button>
-</div>
+</div></div>
 </div>
 <div class="lumen_grid">
-<div class="lumen-grid_col-1-2 question-card">
+<div class="lumen-grid_col-6"><div class="question-card">
 <h1 id="question-3" class="lumen_title lumen_title-m">What do you consider a “good” death?</h1>
 <br>
 <p id="answer-3-1"></p>
@@ -60,10 +61,10 @@
 <p id="answer-3-5"></p>
 <textarea id="response-3" name="comment" class="lumen_input lumen_input-textarea lumen_c m-bottom-s" placeholder="Response"></textarea>
 <button id="submit-3" class="lumen_input lumen_input-submit lumen_btn lumen_btn-light" onclick="SubmitAnswerThree()">Submit</button>
-</div>
+</div></div>
 </div>
 <div class="lumen_grid">
-<div class="lumen-grid_col-1-2 question-card">
+<div class="lumen-grid_col-6"><div class="question-card">
 <h1 id="question-4" class="lumen_title lumen_title-m">If today was your last, what would you do?</h1>
 <br>
 <p id="answer-4-1"></p>
@@ -73,10 +74,10 @@
 <p id="answer-4-5"></p>
 <textarea id="response-4" name="comment" form="usrform" class="lumen_input lumen_input-textarea lumen_c m-bottom-s" placeholder="Response"></textarea>
 <button id="submit-4" class="lumen_input lumen_input-submit lumen_btn lumen_btn-light" onclick="SubmitAnswerFour()">Submit</button>
-</div>
+</div></div>
 </div>
 <div class="lumen_grid">
-<div class="lumen-grid_col-1-2 question-card">
+<div class="lumen-grid_col-6"><div class="question-card">
 <h1 id="question-5" class="lumen_title lumen_title-m">If you were about to die, what things would feel unresolved?</h1>
 <br>
 <p id="answer-5-1"></p>
@@ -86,16 +87,17 @@
 <p id="answer-5-5"></p>
 <textarea id="response-5" name="comment" form="usrform" class="lumen_input lumen_input-textarea lumen_c m-bottom-s" placeholder="Response"></textarea>
 <button id="submit-5" class="lumen_input lumen_input-submit lumen_btn lumen_btn-light" onclick="SubmitAnswerFive()">Submit</button>
+</div></div>
 </div>
-</div>
-    
+
 <footer class="m-top-xl">
 <p>Copyright 2018 Lumen</p>
 </footer>
+</div>
 </body>
 
 <script>
-    
+
 $( document ).ready(function() {
 
 LoadAnswersOne();
@@ -103,9 +105,9 @@ LoadAnswersTwo();
 LoadAnswersThree();
 LoadAnswersFour();
 LoadAnswersFive();
-    
+
 });
-    
+
 function SubmitAnswerOne() {
 
 var answer = document.getElementById("response-1").value;
@@ -113,15 +115,15 @@ var data = {};
 data[0] = answer;
 
 blockspring.runParsed("append-to-google-spreadsheet", {
-// middle parameter from Google Spreadsheet URL 
+// middle parameter from Google Spreadsheet URL
 // https://docs.google.com/spreadsheets/d/FILE_ID/edit?usp=sharing
-"file_id": "1T-cQY9HeagTqJjNuFVdr4HhhWbREPFiYvKtq7gQmRmQ", 
+"file_id": "1T-cQY9HeagTqJjNuFVdr4HhhWbREPFiYvKtq7gQmRmQ",
 // The first sheet within the particular doc will always be 0
 "worksheet_id": 0,
-//The array of arrays, as stated above 
+//The array of arrays, as stated above
 "values": data},
 //Provided on the page at https://open.blockspring.com/pkpp1233/append-to-google-spreadsheet
-{ "api_key": "c155f5a32843c24811a08f684545a5aa" }, 
+{ "api_key": "c155f5a32843c24811a08f684545a5aa" },
 function(res){
 //console.log to check for errors
 console.log(res);
@@ -132,7 +134,7 @@ document.getElementById("response-1").style.display = "none";
 document.getElementById("submit-1").style.display = "none";
 
 };
-    
+
 function SubmitAnswerTwo() {
 
 var answer = document.getElementById("response-2").value;
@@ -140,15 +142,15 @@ var data = {};
 data[0] = answer;
 
 blockspring.runParsed("append-to-google-spreadsheet", {
-// middle parameter from Google Spreadsheet URL 
+// middle parameter from Google Spreadsheet URL
 // https://docs.google.com/spreadsheets/d/FILE_ID/edit?usp=sharing
-"file_id": "1LYivVWGrnL-qDOF9VzotX0YU79j1UIe0X2hIqTOpFsA", 
+"file_id": "1LYivVWGrnL-qDOF9VzotX0YU79j1UIe0X2hIqTOpFsA",
 // The first sheet within the particular doc will always be 0
 "worksheet_id": 0,
-//The array of arrays, as stated above 
+//The array of arrays, as stated above
 "values": data},
 //Provided on the page at https://open.blockspring.com/pkpp1233/append-to-google-spreadsheet
-{ "api_key": "c155f5a32843c24811a08f684545a5aa" }, 
+{ "api_key": "c155f5a32843c24811a08f684545a5aa" },
 function(res){
 //console.log to check for errors
 console.log(res);
@@ -159,7 +161,7 @@ document.getElementById("response-2").style.display = "none";
 document.getElementById("submit-2").style.display = "none";
 
 };
-    
+
 function SubmitAnswerThree() {
 
 var answer = document.getElementById("response-3").value;
@@ -167,15 +169,15 @@ var data = {};
 data[0] = answer;
 
 blockspring.runParsed("append-to-google-spreadsheet", {
-// middle parameter from Google Spreadsheet URL 
+// middle parameter from Google Spreadsheet URL
 // https://docs.google.com/spreadsheets/d/FILE_ID/edit?usp=sharing
-"file_id": "1x2nvE9a3QeKXMpVhUc0lwwFFP2AhFfYa8d9HA9QPw6M", 
+"file_id": "1x2nvE9a3QeKXMpVhUc0lwwFFP2AhFfYa8d9HA9QPw6M",
 // The first sheet within the particular doc will always be 0
 "worksheet_id": 0,
-//The array of arrays, as stated above 
+//The array of arrays, as stated above
 "values": data},
 //Provided on the page at https://open.blockspring.com/pkpp1233/append-to-google-spreadsheet
-{ "api_key": "c155f5a32843c24811a08f684545a5aa" }, 
+{ "api_key": "c155f5a32843c24811a08f684545a5aa" },
 function(res){
 //console.log to check for errors
 console.log(res);
@@ -186,7 +188,7 @@ document.getElementById("response-3").style.display = "none";
 document.getElementById("submit-3").style.display = "none";
 
 };
-    
+
 function SubmitAnswerFour() {
 
 var answer = document.getElementById("response-4").value;
@@ -194,15 +196,15 @@ var data = {};
 data[0] = answer;
 
 blockspring.runParsed("append-to-google-spreadsheet", {
-// middle parameter from Google Spreadsheet URL 
+// middle parameter from Google Spreadsheet URL
 // https://docs.google.com/spreadsheets/d/FILE_ID/edit?usp=sharing
-"file_id": "1pCagbmxHIUin7EaImNo8jcB4Buca203a5Rq_54h_Rpc", 
+"file_id": "1pCagbmxHIUin7EaImNo8jcB4Buca203a5Rq_54h_Rpc",
 // The first sheet within the particular doc will always be 0
 "worksheet_id": 0,
-//The array of arrays, as stated above 
+//The array of arrays, as stated above
 "values": data},
 //Provided on the page at https://open.blockspring.com/pkpp1233/append-to-google-spreadsheet
-{ "api_key": "c155f5a32843c24811a08f684545a5aa" }, 
+{ "api_key": "c155f5a32843c24811a08f684545a5aa" },
 function(res){
 //console.log to check for errors
 console.log(res);
@@ -213,7 +215,7 @@ document.getElementById("response-4").style.display = "none";
 document.getElementById("submit-4").style.display = "none";
 
 };
-    
+
 function SubmitAnswerFive() {
 
 var answer = document.getElementById("response-5").value;
@@ -221,15 +223,15 @@ var data = {};
 data[0] = answer;
 
 blockspring.runParsed("append-to-google-spreadsheet", {
-// middle parameter from Google Spreadsheet URL 
+// middle parameter from Google Spreadsheet URL
 // https://docs.google.com/spreadsheets/d/FILE_ID/edit?usp=sharing
-"file_id": "1rgn2BoghLseE_KoM2GbYkWHLRiBou2MH3q4sch8V2kI", 
+"file_id": "1rgn2BoghLseE_KoM2GbYkWHLRiBou2MH3q4sch8V2kI",
 // The first sheet within the particular doc will always be 0
 "worksheet_id": 0,
-//The array of arrays, as stated above 
+//The array of arrays, as stated above
 "values": data},
 //Provided on the page at https://open.blockspring.com/pkpp1233/append-to-google-spreadsheet
-{ "api_key": "c155f5a32843c24811a08f684545a5aa" }, 
+{ "api_key": "c155f5a32843c24811a08f684545a5aa" },
 function(res){
 //console.log to check for errors
 console.log(res);
@@ -240,7 +242,7 @@ document.getElementById("response-5").style.display = "none";
 document.getElementById("submit-5").style.display = "none";
 
 };
-    
+
 function LoadAnswersOne() {
 blockspring.runParsed("query-google-spreadsheet", {
 // Here is where you need to decide what data you are grabbing with the Google query syntax
@@ -248,7 +250,7 @@ blockspring.runParsed("query-google-spreadsheet", {
 // Google syntax makes you request columns with letters as opposed to your column titles.
 "query": "SELECT A, B",
 // This is the full URL of your sheet. Just copy and paste from your browser.
-"url": "https://docs.google.com/spreadsheets/d/1T-cQY9HeagTqJjNuFVdr4HhhWbREPFiYvKtq7gQmRmQ/edit?usp=sharing" 
+"url": "https://docs.google.com/spreadsheets/d/1T-cQY9HeagTqJjNuFVdr4HhhWbREPFiYvKtq7gQmRmQ/edit?usp=sharing"
 // Cache is false so that your browser does not run an old function when you change your code
 }, { cache: false, expiry: 7200}, function(res) {
 // All results are part of the res.params.data object.
@@ -271,7 +273,7 @@ blockspring.runParsed("query-google-spreadsheet", {
 // Google syntax makes you request columns with letters as opposed to your column titles.
 "query": "SELECT A, B",
 // This is the full URL of your sheet. Just copy and paste from your browser.
-"url": "https://docs.google.com/spreadsheets/d/1LYivVWGrnL-qDOF9VzotX0YU79j1UIe0X2hIqTOpFsA/edit?usp=sharing" 
+"url": "https://docs.google.com/spreadsheets/d/1LYivVWGrnL-qDOF9VzotX0YU79j1UIe0X2hIqTOpFsA/edit?usp=sharing"
 // Cache is false so that your browser does not run an old function when you change your code
 }, { cache: false, expiry: 7200}, function(res) {
 // All results are part of the res.params.data object.
@@ -294,7 +296,7 @@ blockspring.runParsed("query-google-spreadsheet", {
 // Google syntax makes you request columns with letters as opposed to your column titles.
 "query": "SELECT A, B",
 // This is the full URL of your sheet. Just copy and paste from your browser.
-"url": "https://docs.google.com/spreadsheets/d/1x2nvE9a3QeKXMpVhUc0lwwFFP2AhFfYa8d9HA9QPw6M/edit?usp=sharing" 
+"url": "https://docs.google.com/spreadsheets/d/1x2nvE9a3QeKXMpVhUc0lwwFFP2AhFfYa8d9HA9QPw6M/edit?usp=sharing"
 // Cache is false so that your browser does not run an old function when you change your code
 }, { cache: false, expiry: 7200}, function(res) {
 // All results are part of the res.params.data object.
@@ -309,7 +311,7 @@ document.getElementById("answer-3-3").innerHTML = answers[2]['answer'];
 document.getElementById("answer-3-4").innerHTML = answers[3]['answer'];
 });
 }
-    
+
 function LoadAnswersFour() {
 blockspring.runParsed("query-google-spreadsheet", {
 // Here is where you need to decide what data you are grabbing with the Google query syntax
@@ -317,7 +319,7 @@ blockspring.runParsed("query-google-spreadsheet", {
 // Google syntax makes you request columns with letters as opposed to your column titles.
 "query": "SELECT A, B",
 // This is the full URL of your sheet. Just copy and paste from your browser.
-"url": "https://docs.google.com/spreadsheets/d/1pCagbmxHIUin7EaImNo8jcB4Buca203a5Rq_54h_Rpc/edit?usp=sharing" 
+"url": "https://docs.google.com/spreadsheets/d/1pCagbmxHIUin7EaImNo8jcB4Buca203a5Rq_54h_Rpc/edit?usp=sharing"
 // Cache is false so that your browser does not run an old function when you change your code
 }, { cache: false, expiry: 7200}, function(res) {
 // All results are part of the res.params.data object.
@@ -332,7 +334,7 @@ document.getElementById("answer-4-3").innerHTML = answers[2]['answer'];
 document.getElementById("answer-4-4").innerHTML = answers[3]['answer'];
 });
 }
-    
+
 function LoadAnswersFive() {
 blockspring.runParsed("query-google-spreadsheet", {
 // Here is where you need to decide what data you are grabbing with the Google query syntax
@@ -340,7 +342,7 @@ blockspring.runParsed("query-google-spreadsheet", {
 // Google syntax makes you request columns with letters as opposed to your column titles.
 "query": "SELECT A, B",
 // This is the full URL of your sheet. Just copy and paste from your browser.
-"url": "https://docs.google.com/spreadsheets/d/1rgn2BoghLseE_KoM2GbYkWHLRiBou2MH3q4sch8V2kI/edit?usp=sharing" 
+"url": "https://docs.google.com/spreadsheets/d/1rgn2BoghLseE_KoM2GbYkWHLRiBou2MH3q4sch8V2kI/edit?usp=sharing"
 // Cache is false so that your browser does not run an old function when you change your code
 }, { cache: false, expiry: 7200}, function(res) {
 // All results are part of the res.params.data object.
@@ -355,7 +357,7 @@ document.getElementById("answer-5-3").innerHTML = answers[2]['answer'];
 document.getElementById("answer-5-4").innerHTML = answers[3]['answer'];
 });
 }
-    
+
 function Shuffle(o) {
 for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
 return o;

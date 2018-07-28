@@ -2,8 +2,19 @@
 //   Layout Styles may include:
 // *******/
 
-.lumen-wrapper {
 
+.lumen-wrapper{
+ // width: 960px;
+}
+.lumen-content {
+  // width: 89%;
+  // width: 1367px;
+  // margin: 0 auto;
+  /* max-width: 1454px; */
+  height: 100vh;
+  margin: 0 auto;
+  margin: 0 6.1222%;
+  //@include padding (20);
 }
 
 .questions {}

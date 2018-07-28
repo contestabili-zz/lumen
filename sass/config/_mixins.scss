@@ -123,9 +123,11 @@
 
 // Box-sizing | @include box-sizing(border-box);
 @mixin box-sizing($box-model) {
-  -webkit-box-sizing: $box-model; // Safari <= 5
-     -moz-box-sizing: $box-model; // Firefox <= 19
-          box-sizing: $box-model;
+  -webkit-box-sizing: $box-model;
+	   -moz-box-sizing: $box-model;
+	    -ms-box-sizing: $box-model;
+    	 -o-box-sizing: $box-model;
+      		box-sizing: $box-model;
 }
 // Clearfix | @include clearFix();
 // - https://coderwall.com/p/ad65fa/sass-clearfix-mixin

@@ -3,20 +3,42 @@
   —
 *******/
 
-// input[type=text]
 .lumen_input-lable {}
 
 .lumen_input {
-  box-sizing: border-box;
   border: 1px solid #C1C1C1;
+  @include box-sizing(border-box);
   @include border-radius($radius);
   padding: 10px 10px;
 }
 
 .lumen_input-textarea {
   width: 100%;
+  overflow: auto;
+
 }
 .lumen_input-submit {
   width: 135px;
   cursor: pointer;
 }
+
+// .lumen_input-checkbox {}
+// .lumen_input-radio {}
+
+// input, textarea, button, select {
+// 	margin: 0;
+// 	font-size: 100%;
+// 	line-height: normal;
+// 	vertical-align: baseline;
+// }
+// button,
+// html input[type="button"],
+// input[type="reset"],
+// input[type="submit"] {
+//     cursor: pointer;
+//     -webkit-appearance: button;
+// }
+// table {
+//     border-collapse: collapse;
+//     border-spacing: 0;
+// }

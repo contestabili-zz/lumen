@@ -10,6 +10,7 @@
 $lumen-font-raleway: "raleway",sans-serif;
 $lumen-font-bookmania: "bookmania",serif;
 $rem-base-font: 16;
+$em: $rem-base-font * 1;
 
 // Color
 $lumen-color1: #0B2924;
@@ -18,8 +19,12 @@ $lumen-color3: #FFFFFF;
 $lumen-color4: #edf1f2;
 $lumen-color5: #404040;
 
-// Grid
-$gutter-width: 20px;
+
+// GGS Important numbers
+$ggs-line: 24;
+$ggs-column: 100% / 12;
+$gutter-width: 20px; // not GGS Related
+
 
 // Shapes & Buttons
 $radius: 5;
