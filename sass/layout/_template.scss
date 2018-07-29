@@ -29,27 +29,26 @@ section.page-questions-section {
 .questions-box {
   @include center(both);
   @include grid-column(10);
-}
-.dome_grid-special {
-  width: 140%;
-  padding: 0;
-  margin-left: -20%;
-}
-.questions-box-slider {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  position: relative;
-}
-
-.questions-box-slides {
-  // display: none;
+  display: none;
   opacity: 0;
   transition-duration: .25s;
 }
 
-.active{
-  opacity: 1;
+.questions-box-slides {
+  // height: 80vh;
+  overflow: hidden;
+  position: relative;
+   > h1.dome_title {
+     display: none;
+     opacity: 0;
+   }
+}
+
+.questions-box-slider {}
+
+.active {
+  display: block !important;
+  opacity: 1 !important;
   transition-duration: .25s;
 }
 
@@ -59,12 +58,18 @@ section.page-questions-section {
 //   transition-duration: .25s;
 // }
 
+.dome_grid-special {
+  width: 140%;
+  padding: 0;
+  margin-left: -20%;
+}
+
 .questions-nav {
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  bottom: -100px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 35px;
+  padding: 20px;
   text-align: center;
 }
 .section-pin {

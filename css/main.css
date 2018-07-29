@@ -288,33 +288,34 @@ section.page-questions-section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: calc((100%  / (16    / 10)) - 0px); }
+  width: calc((100%  / (16    / 10)) - 0px);
+  display: none;
+  opacity: 0;
+  transition-duration: .25s; }
+
+.questions-box-slides {
+  overflow: hidden;
+  position: relative; }
+  .questions-box-slides > h1.dome_title {
+    display: none;
+    opacity: 0; }
+
+.active {
+  display: block !important;
+  opacity: 1 !important;
+  transition-duration: .25s; }
 
 .dome_grid-special {
   width: 140%;
   padding: 0;
   margin-left: -20%; }
 
-.questions-box-slider {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  position: relative; }
-
-.questions-box-slides {
-  opacity: 0;
-  transition-duration: .25s; }
-
-.active {
-  opacity: 1;
-  transition-duration: .25s; }
-
 .questions-nav {
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  bottom: -100px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 35px;
+  padding: 20px;
   text-align: center; }
 
 .section-pin {
