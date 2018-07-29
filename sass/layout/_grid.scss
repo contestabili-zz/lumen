@@ -13,7 +13,7 @@
     width: calc((100%  / (16    / #{$value})) - 0px);
 }
 @mixin grid-offset($value){
-    margin-left: calc((100%  / (16    / $value)) + 20px);
+    margin-left: calc((100%  / (16    / #{$value})) + 20px);
 }
 
 // .lumen-grid_col-1  {width: 8.33%;}

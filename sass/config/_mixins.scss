@@ -24,6 +24,23 @@
       -moz-osx-font-smoothing: auto;
   }
 }
+// Centering  | @include center; | @include center(true, false); | @include center(false, true);
+@mixin center($orientation: both) {
+	//position: absolute;
+    position: relative;
+	@if $orientation == both {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	} @else if $orientation == horizontal {
+		left: 50%;
+		transform: translate(-50%, 0);
+	} @else if $orientation == vertical {
+		top: 50%;
+		transform: translate(0, -50%);
+	}
+}
+
 
 // Font text optimize legibility | @include improve-legibility;
 @mixin improve-legibility {
