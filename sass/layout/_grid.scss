@@ -9,55 +9,58 @@
     padding: 0 calc(20px / 2);
   }
 }
-
-.lumen-grid_col-1  {width: 8.33%;}
-.lumen-grid_col-2  {width: 16.66%;}
-.lumen-grid_col-3  {width: 25%;}
-.lumen-grid_col-4  {width: 33.33%;}
-.lumen-grid_col-5  {width: 41.66%;}
-.lumen-grid_col-6  {width: 50%;}
-.lumen-grid_col-7  {width: 58.33%;}
-.lumen-grid_col-8  {width: 66.66%;}
-.lumen-grid_col-9  {width: 75%;}
-.lumen-grid_col-10 {width: 83.33%;}
-.lumen-grid_col-11 {width: 91.66%;}
-.lumen-grid_col-12 {width: 100%;}
-
-
-.off-1 {
-  margin-left: 8.333333333333334%;
+@mixin grid-column($value){
+    width: calc((100%  / (16    / #{$value})) - 0px);
+}
+@mixin grid-offset($value){
+    margin-left: calc((100%  / (16    / $value)) + 20px);
 }
 
-.off-2 {
-  margin-left: 16.666666666666668%;
-}
-.off-3 {
-  margin-left: 25%;
-}
-.off-4 {
-  margin-left: 33.333333333333336%;
-}
-.off-5 {
-  margin-left: 41.666666666666664%;
-}
-.off-6 {
-  margin-left: 50%;
-}
-.off-7 {
-  margin-left: 58.333333333333336%;
-}
-.off-8 {
-  margin-left: 66.66666666666667%;
-}
-.off-9 {
-  margin-left: 75%;
-}
-.off-10 {
-  margin-left: 83.33333333333333%;
-}
-.off-11 {
-  margin-left: 91.66666666666667%;
-}
-.off-12 {
-  margin-left: 100%;
-}
+// .lumen-grid_col-1  {width: 8.33%;}
+.lumen-grid_col-1  {@include grid-column(1);}
+.lumen-grid_col-2  {@include grid-column(2);}
+.lumen-grid_col-3  {@include grid-column(3);}
+.lumen-grid_col-4  {@include grid-column(4);}
+.lumen-grid_col-5  {@include grid-column(5);}
+.lumen-grid_col-6  {@include grid-column(6);}
+.lumen-grid_col-7  {@include grid-column(7);}
+.lumen-grid_col-8  {@include grid-column(8);}
+.lumen-grid_col-9  {@include grid-column(9);}
+.lumen-grid_col-10 {@include grid-column(10);}
+.lumen-grid_col-11 {@include grid-column(11);}
+.lumen-grid_col-12 {@include grid-column(12);}
+.lumen-grid_col-13 {@include grid-column(13);}
+.lumen-grid_col-14 {@include grid-column(14);}
+.lumen-grid_col-15 {@include grid-column(15);}
+.lumen-grid_col-16 {@include grid-column(16);}
+
+.off-1  {@include grid-offset(1);}
+.off-2  {@include grid-offset(2);}
+.off-3  {@include grid-offset(3);}
+.off-4  {@include grid-offset(4);}
+.off-5  {@include grid-offset(5);}
+.off-6  {@include grid-offset(6);}
+.off-7  {@include grid-offset(7);}
+.off-8  {@include grid-offset(8);}
+.off-9  {@include grid-offset(9);}
+.off-10 {@include grid-offset(10);}
+.off-11 {@include grid-offset(11);}
+.off-12 {@include grid-offset(12);}
+.off-13 {@include grid-offset(13);}
+.off-14 {@include grid-offset(14);}
+.off-15 {@include grid-offset(15);}
+.off-16 {@include grid-offset(16);}
+
+// 12 colum Grid
+// .lumen-grid_col-1  {width: 8.33%;}
+// .lumen-grid_col-2  {width: 16.66%;}
+// .lumen-grid_col-3  {width: 25%;}
+// .lumen-grid_col-4  {width: 33.33%;}
+// .lumen-grid_col-5  {width: 41.66%;}
+// .lumen-grid_col-6  {width: 50%;}
+// .lumen-grid_col-7  {width: 58.33%;}
+// .lumen-grid_col-8  {width: 66.66%;}
+// .lumen-grid_col-9  {width: 75%;}
+// .lumen-grid_col-10 {width: 83.33%;}
+// .lumen-grid_col-11 {width: 91.66%;}
+// .lumen-grid_col-12 {width: 100%;}

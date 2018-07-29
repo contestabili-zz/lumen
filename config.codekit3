@@ -184,6 +184,13 @@
 		"oAP": "\/.sass-cache\/3ac97ae7147d044e22d481d51557fb08659b292e\/_GGS.scssc",
 		"oF": 0
 		},
+	"\/.sass-cache\/3ac97ae7147d044e22d481d51557fb08659b292e\/_griddy.scssc": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 1,
+		"oAP": "\/.sass-cache\/3ac97ae7147d044e22d481d51557fb08659b292e\/_griddy.scssc",
+		"oF": 0
+		},
 	"\/.sass-cache\/3ac97ae7147d044e22d481d51557fb08659b292e\/_neat.scssc": {
 		"cB": 0,
 		"ft": 8192,
@@ -217,6 +224,13 @@
 		"ft": 8192,
 		"oA": 1,
 		"oAP": "\/.sass-cache\/5fe9d9e3413b221fd7331d68a78365d8df176d48\/_layout.scssc",
+		"oF": 0
+		},
+	"\/.sass-cache\/5fe9d9e3413b221fd7331d68a78365d8df176d48\/_template.scssc": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 1,
+		"oAP": "\/.sass-cache\/5fe9d9e3413b221fd7331d68a78365d8df176d48\/_template.scssc",
 		"oF": 0
 		},
 	"\/.sass-cache\/7f36e0c973586231684e1199744a749726c31114\/_grid.scssc": {
@@ -520,6 +534,36 @@
 		"oAP": "\/.sass-cache\/fb68ec7994499229c16552239d8c3b5d4ab3b486\/_typography.scssc",
 		"oF": 0
 		},
+	"\/assets\/svg\/arrows.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/assets\/svg\/arrows.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/assets\/svg\/enter.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/assets\/svg\/enter.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/assets\/svg\/ic_keyboard_return_48px.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "\/assets\/svg\/ic_keyboard_return_48px.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"\/css\/main-min.css": {
 		"aP": 1,
 		"bl": 0,
@@ -619,6 +663,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/question-1.html",
+		"oF": 0
+		},
+	"\/question-section.html": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/question-section.html",
 		"oF": 0
 		},
 	"\/question.html": {
@@ -728,6 +779,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "\/sass\/css\/_layout.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/sass\/layout\/_template.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/sass\/css\/_template.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1

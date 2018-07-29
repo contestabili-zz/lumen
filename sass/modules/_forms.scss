@@ -3,24 +3,40 @@
   —
 *******/
 
-.lumen_input-lable {}
-
-.lumen_input {
-  border: 1px solid #C1C1C1;
-  @include box-sizing(border-box);
-  @include border-radius($radius);
-  padding: 10px 10px;
+.lumen_form {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 65px;
+}
+.lumen_input-lable {
+  margin-bottom: 50px;
+  text-align: center;
 }
 
+.lumen_input {
+  border-bottom: 2px solid $lumen-color2;
+  border-right: 0px;
+  border-top: 0px;
+  border-left: 0px;
+  outline: none;
+  background: 0 0;
+  color: $lumen-color2;
+}
+.lumen_input::placeholder {
+  color: $lumen-color2;
+}
 .lumen_input-textarea {
   width: 100%;
   overflow: auto;
 
 }
-.lumen_input-submit {
-  width: 135px;
-  cursor: pointer;
-}
+
+
+
+
+
+
 
 // .lumen_input-checkbox {}
 // .lumen_input-radio {}

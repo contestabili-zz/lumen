@@ -13,11 +13,11 @@
   /* max-width: 1454px; */
   height: 100vh;
   margin: 0 auto;
-  margin: 0 6.1222%;
+  margin: 0 5.55555%;
   //@include padding (20);
+  padding: 0 #{($ggs-line/2)/$em}em;
+  @include box-sizing(border-box);
 }
-
-.questions {}
 
 //Margins Top
 .m-top-xl {

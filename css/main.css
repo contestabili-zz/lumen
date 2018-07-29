@@ -133,82 +133,112 @@ body {
     padding: 0 calc(20px / 2); }
 
 .lumen-grid_col-1 {
-  width: 8.33%; }
+  width: calc((100%  / (16    / 1)) - 0px); }
 
 .lumen-grid_col-2 {
-  width: 16.66%; }
+  width: calc((100%  / (16    / 2)) - 0px); }
 
 .lumen-grid_col-3 {
-  width: 25%; }
+  width: calc((100%  / (16    / 3)) - 0px); }
 
 .lumen-grid_col-4 {
-  width: 33.33%; }
+  width: calc((100%  / (16    / 4)) - 0px); }
 
 .lumen-grid_col-5 {
-  width: 41.66%; }
+  width: calc((100%  / (16    / 5)) - 0px); }
 
 .lumen-grid_col-6 {
-  width: 50%; }
+  width: calc((100%  / (16    / 6)) - 0px); }
 
 .lumen-grid_col-7 {
-  width: 58.33%; }
+  width: calc((100%  / (16    / 7)) - 0px); }
 
 .lumen-grid_col-8 {
-  width: 66.66%; }
+  width: calc((100%  / (16    / 8)) - 0px); }
 
 .lumen-grid_col-9 {
-  width: 75%; }
+  width: calc((100%  / (16    / 9)) - 0px); }
 
 .lumen-grid_col-10 {
-  width: 83.33%; }
+  width: calc((100%  / (16    / 10)) - 0px); }
 
 .lumen-grid_col-11 {
-  width: 91.66%; }
+  width: calc((100%  / (16    / 11)) - 0px); }
 
 .lumen-grid_col-12 {
-  width: 100%; }
+  width: calc((100%  / (16    / 12)) - 0px); }
+
+.lumen-grid_col-13 {
+  width: calc((100%  / (16    / 13)) - 0px); }
+
+.lumen-grid_col-14 {
+  width: calc((100%  / (16    / 14)) - 0px); }
+
+.lumen-grid_col-15 {
+  width: calc((100%  / (16    / 15)) - 0px); }
+
+.lumen-grid_col-16 {
+  width: calc((100%  / (16    / 16)) - 0px); }
 
 .off-1 {
-  margin-left: 8.333333333333334%; }
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
 
 .off-2 {
-  margin-left: 16.666666666666668%; }
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
 
 .off-3 {
-  margin-left: 25%; }
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
 
 .off-4 {
-  margin-left: 33.333333333333336%; }
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
 
 .off-5 {
-  margin-left: 41.666666666666664%; }
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
 
 .off-6 {
-  margin-left: 50%; }
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
 
 .off-7 {
-  margin-left: 58.333333333333336%; }
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
 
 .off-8 {
-  margin-left: 66.66666666666667%; }
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
 
 .off-9 {
-  margin-left: 75%; }
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
 
 .off-10 {
-  margin-left: 83.33333333333333%; }
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
 
 .off-11 {
-  margin-left: 91.66666666666667%; }
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
 
 .off-12 {
-  margin-left: 100%; }
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
+
+.off-13 {
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
+
+.off-14 {
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
+
+.off-15 {
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
+
+.off-16 {
+  margin-left: calc((100%  / (16    / $value)) + 20px); }
 
 .lumen-content {
   /* max-width: 1454px; */
   height: 100vh;
   margin: 0 auto;
-  margin: 0 6.1222%; }
+  margin: 0 5.55555%;
+  padding: 0 0.75em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
 
 .m-top-xl {
   margin-top: 64px; }
@@ -239,6 +269,110 @@ body {
 
 .m-bottom-s {
   margin-bottom: 16px; }
+
+body.lumen-wrapper {
+  background-color: #0B2924; }
+
+.lumen-content {
+  color: #EEE5DE; }
+
+.dome_title {
+  font-family: "bookmania", serif;
+  font-weight: 800; }
+  .dome_title-center {
+    text-align: center; }
+
+.dome-title-1 {
+  font-size: 64px;
+  line-height: calc(64px * 1); }
+
+.dome_title-2 {
+  font-size: 32px;
+  line-height: calc(32px * 1); }
+
+.dome_title-3 {
+  font-size: 35px;
+  line-height: calc(35px * 1); }
+
+.dome_title-3-special {
+  font-size: 42px;
+  margin-top: -30px;
+  margin-bottom: 30px;
+  text-align: center; }
+
+.dome-c {
+  font-size: 28px;
+  line-height: calc(28px * 1);
+  font-weight: 300 !important; }
+
+.dome-c-l {
+  font-size: 32px;
+  line-height: calc(32px * 1);
+  margin-bottom: 32px;
+  font-weight: 300 !important; }
+
+.dome-c-s {
+  font-size: 12px;
+  font-weight: 400; }
+
+hr {
+  border: none;
+  border-top: 5px dotted #EEE5DE;
+  color: #fff;
+  height: 1px;
+  width: 100%; }
+
+.keyboard-key {
+  float: right; }
+  .keyboard-key span {
+    font-size: 32px;
+    float: left;
+    margin-right: 20px; }
+
+.keyboard-key-return {
+  float: left;
+  background: url(../../assets/svg/enter.svg);
+  border: 0;
+  display: block;
+  height: 60px;
+  width: 125px; }
+
+.question {
+  margin: 100px auto;
+  width: 900px; }
+
+.directions {
+  width: 475px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 40px; }
+
+.keyboard-key-arrow {
+  background: url(../../assets/svg/arrows.svg);
+  border: 0;
+  display: block;
+  height: 36px;
+  width: 80px;
+  margin: 10px auto 100px;
+  background-size: 80px; }
+
+.directions div {
+  float: left;
+  width: 50%; }
+  .directions div:before, .directions div:after {
+    content: "";
+    display: table; }
+  .directions div:after {
+    clear: both; }
+
+.keyboard-key-teb-ect {
+  background: url(../../assets/svg/enter.svg);
+  border: 0;
+  display: block;
+  height: 38px;
+  width: 80px;
+  margin: 0px auto;
+  background-size: 80px; }
 
 /******
   Buttons Styles may include:
@@ -306,25 +440,31 @@ body {
   Froms Styles may include:
   —
 *******/
+.lumen_form {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 65px; }
+
+.lumen_input-lable {
+  margin-bottom: 50px;
+  text-align: center; }
+
 .lumen_input {
-  border: 1px solid #C1C1C1;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  padding: 10px 10px; }
+  border-bottom: 2px solid #EEE5DE;
+  border-right: 0px;
+  border-top: 0px;
+  border-left: 0px;
+  outline: none;
+  background: 0 0;
+  color: #EEE5DE; }
+
+.lumen_input::placeholder {
+  color: #EEE5DE; }
 
 .lumen_input-textarea {
   width: 100%;
   overflow: auto; }
-
-.lumen_input-submit {
-  width: 135px;
-  cursor: pointer; }
 
 /******
   Froms Styles may include:
