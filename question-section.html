@@ -11,6 +11,12 @@
 <script src="https://cdn.blockspring.com/blockspring.js"></script>
 <!--<script type="text/javascript" src="js/prompt-min.js"></script>-->
 <script src="js/GGS.js"></script>
+  <style>
+    .hide {
+      display: none;
+      opacity: 0;
+    }
+  </style>
 <script type="text/jscript">
   $(document).ready(function(){
     $('li.section-pin').on('click', function(){
@@ -25,7 +31,21 @@
       <section id="page-questions-section" class="page-questions-section lumen-grid">
 
             <!-- State 1 | Showing question & Toggle between others -->
-            <div id="state-1" class="questions-box questions-box-slider active">
+            <div id="state-1" class="questions-box questions-box-slider">
+              
+              <!-- related to section 2-->
+              <div class="lumen_grid dome_grid-special dome_title dome_title-center hide">
+                  <div class="lumen-grid_col-4">
+                    <h3 id="#!" class="dome_title-2">I have spoken about it everyday since my wife passed.</h3>
+                  </div>
+                  <div class="lumen-grid_col-8">
+                    <h5 class="dome_title-2-special">2 Days ago!</h5>
+                  </div>
+                  <div class="lumen-grid_col-4">
+                    <h5 id="#!" class="dome_title-2">I have never spoken about death.</h5>
+                  </div>
+              </div><!-- end  related to section 2-->
+     
               <div class="questions-box-slides">
                 <h1 id="question-1" class="dome_title dome_title-center dome_title-1 active">When was the last time you spoke about death?</h1>
                 <h1 id="question-2" class="dome_title dome_title-center dome_title-1">...</h1>
@@ -37,7 +57,19 @@
                 <span class="keyboard-key-arrow"></span>
                 <p class="dome-c dome-c-s"> Use arrow keys to change the question</p>
               </div>
-
+              
+              <!-- related to section 2-->
+              <div class="directions hide">
+                <div class="split">
+                  <span class="keyboard-key-tab-ect"></span>
+                  <p class="dome-c dome-c-s"> Press Tab to think about another question</p>
+                </div>
+                <div class="split">
+                  <span class="keyboard-key-tab-ect"></span>
+                  <p class="dome-c dome-c-s"> Press ESC to exit the experience</p>
+                </div>
+              </div><!-- end  related to section 2-->
+              
               <form class="dome_form">
                 <textarea type="text" id="response-#" class="dome_input lumen_input-textarea dome-c m-bottom-s" name="response" placeholder="Reseponse Here"></textarea>
                 <div class="keyboard-key">
@@ -45,17 +77,44 @@
                   <input type="submit" value="" class="lumen_input-submit keyboard-key-return">
                 </div>
               </form>
-
+              
+              <!-- related to section 2-->
+              <div class="lumen_grid dome_grid-special dome_title dome_title-center hide">
+                  <div class="lumen-grid_col-4">
+                    <h3 id="#!" class="dome_title-2">I have spoken about it everyday since my wife passed.</h3>
+                  </div>
+                  <div class="lumen-grid_col-8">
+<!--
+                    <div class="directions">
+                      <div class="split">
+                        <span class="keyboard-key-tab-ect"></span>
+                        <p class="dome-c dome-c-s"> Press Tab to think about another question</<p>
+                      </div>
+                      <div class="split">
+                        <span class="keyboard-key-tab-ect"></span>
+                        <p class="dome-c dome-c-s"> Press ESC to exit the experience</p>
+                      </div>
+                    </div>
+-->
+                  </div>
+                  <div class="lumen-grid_col-4">
+                    <h5 id="#!" class="dome_title-2">I have never spoken about death.</h5>
+                  </div>
+              </div> <!-- end related to section 2-->            
+              
+            
               <ul class="questions-nav">
-                <li id="question-1" class="section-pin active"></li>
-                <li id="question-2" class="section-pin"></li>
-                <li id="question-3" class="section-pin"></li>
-                <li id="question-4" class="section-pin"></li>
+                <li id="question-1-nav" class="section-pin active"></li>
+                <li id="question-2-nav" class="section-pin"></li>
+                <li id="question-3-nav" class="section-pin"></li>
+                <li id="question-4-nav" class="section-pin"></li>
               </ul>
             </div><!-- close #state-1 & .questions-box-slider  -->
 
             <!-- State 2 | Showing responses from other & Most Recent -->
+<!--
             <div id="state-2" class="questions-box">
+
               <div class="lumen_grid dome_grid-special dome_title dome_title-center">
                   <div class="lumen-grid_col-4">
                     <h3 id="#!" class="dome_title-2">I have spoken about it everyday since my wife passed.</h3>
@@ -91,9 +150,10 @@
                   </div>
               </div>
             </div>
+-->
 
             <!-- State 3 | Show all users responces and others -->
-            <div id="state-3" class="questions-box">
+            <div id="state-3" class="questions-box active">
               <div class="lumen_grid dome_title">
                 <div class="lumen-grid_col-3 off-1">
                   <h3 class="dome_title dome_title-4">Here are the questions you pondered upon.</h3>
