@@ -1,5 +1,29 @@
 var slideContents = [];
 var slideContentIndex = 0;
+var sectionIndex = 1;
+
+function UpdateControls() {
+  
+  if (document.getElementById("answer-new").innerHTML == "") {
+    document.getElementById("directions-1").classList.remove('hide');
+    document.getElementById("directions-2").classList.add('hide');
+    document.getElementById("directions-3").classList.remove('hide');
+    document.getElementById("directions-4").classList.remove('hide');
+    
+    document.getElementById("response").value = "";
+    document.getElementById("response").placeholder = "Your response";
+    
+    document.responseForm.responseTextArea.focus();
+    
+  }
+  else {
+    document.getElementById("directions-1").classList.add('hide');
+    document.getElementById("directions-2").classList.remove('hide');
+    document.getElementById("directions-3").classList.add('hide');
+    document.getElementById("directions-4").classList.add('hide');
+  }
+  
+}
 
 function UpdateSlideContent() {
 
@@ -10,17 +34,25 @@ function UpdateSlideContent() {
   document.getElementById("answer-4").innerHTML = slideContents[slideContentIndex].answers[3];
   document.getElementById("answer-new").innerHTML = slideContents[slideContentIndex].newAnswer;
 
-  if (document.getElementById("answer-new").innerHTML == "") {
-    document.getElementById("directions-2").classList.add('hide');
-    document.getElementById("directions-3").classList.remove('hide');
-    document.getElementById("response").value = "";
-    document.getElementById("response").placeholder = "Your response";
-  }
-  else {
-    document.getElementById("directions-2").classList.remove('hide');
-    document.getElementById("directions-3").classList.add('hide');
-  }
+}
 
+function UpdateSummary() {
+  
+  document.getElementById("question-1").innerHTML = slideContents[0].question;
+  document.getElementById("response-1").innerHTML = slideContents[0].newAnswer;
+  
+  document.getElementById("question-2").innerHTML = slideContents[1].question;
+  document.getElementById("response-2").innerHTML = slideContents[1].newAnswer;
+  
+  document.getElementById("question-3").innerHTML = slideContents[2].question;
+  document.getElementById("response-3").innerHTML = slideContents[2].newAnswer;
+  
+  document.getElementById("question-4").innerHTML = slideContents[3].question;
+  document.getElementById("response-4").innerHTML = slideContents[3].newAnswer;
+  
+  document.getElementById("question-5").innerHTML = slideContents[4].question;
+  document.getElementById("response-5").innerHTML = slideContents[4].newAnswer;
+  
 }
 
 function UpdateNav() {
@@ -37,6 +69,8 @@ function UpdateNav() {
 }
 
 $(document).keydown(function(keyPressed) {
+  
+  // Enter
   if (keyPressed.keyCode == 13) {
     if (slideContentIndex == 0) SubmitAnswerOne();
     else if (slideContentIndex == 1) SubmitAnswerTwo();
@@ -47,10 +81,10 @@ $(document).keydown(function(keyPressed) {
     document.getElementById("answers-1").classList.remove('hide');
     document.getElementById("answers-2").classList.remove('hide');
 
-    document.getElementById("directions-2").classList.remove('hide');
-    document.getElementById("directions-3").classList.add('hide');
+    UpdateControls();
   }
 
+  // Left arrow
   else if (keyPressed.keyCode == 37) {
     if (slideContentIndex > 0) {
       slideContentIndex--;
@@ -59,8 +93,11 @@ $(document).keydown(function(keyPressed) {
 
     UpdateSlideContent();
     UpdateNav();
+    UpdateControls();
+    
   }
 
+  // Right arrow
   else if (keyPressed.keyCode == 39) {
     if (slideContentIndex < 4) {
       slideContentIndex++;
@@ -69,6 +106,35 @@ $(document).keydown(function(keyPressed) {
 
     UpdateSlideContent();
     UpdateNav();
+    UpdateControls();
+  }
+  
+  
+  // Tab
+  else if (keyPressed.keyCode == 9) {
+    if (slideContentIndex < 4) {
+      slideContentIndex++;
+    }
+    else slideContentIndex = 0;
+
+    UpdateSlideContent();
+    UpdateNav();
+    UpdateControls();
+  }
+  
+  // Escape
+  else if (keyPressed.keyCode == 27) {
+    if (sectionIndex == 1) {
+      document.getElementById("state-1").classList.remove('active');
+      document.getElementById("state-3").classList.add('active');
+
+      UpdateSummary();
+      sectionIndex = 3;
+    }
+    
+    else if (sectionIndex == 3) {
+      location.reload();
+    }
   }
 });
 
