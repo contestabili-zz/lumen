@@ -72,7 +72,7 @@ function UpdateNav() {
 $(document).keydown(function(keyPressed) {
   
   // Enter
-  if (keyPressed.keyCode == 13) {
+  if (keyPressed.keyCode == 13 && slideContents[slideContentIndex].newAnswer == "") {
     if (slideContentIndex == 0) SubmitAnswerOne();
     else if (slideContentIndex == 1) SubmitAnswerTwo();
     else if (slideContentIndex == 2) SubmitAnswerThree();
