@@ -5,6 +5,8 @@ var sectionIndex = 1;
 function UpdateControls() {
   
   if (document.getElementById("answer-new").innerHTML == "") {
+    console.log("Response textarea is empty");
+    
     document.getElementById("directions-1").classList.remove('hide');
     document.getElementById("directions-2").classList.add('hide');
     document.getElementById("directions-3").classList.remove('hide');
@@ -14,7 +16,6 @@ function UpdateControls() {
     document.getElementById("response").placeholder = "Your response";
     
     document.responseForm.responseTextArea.focus();
-    
   }
   else {
     document.getElementById("directions-1").classList.add('hide');
@@ -81,6 +82,8 @@ $(document).keydown(function(keyPressed) {
     document.getElementById("answers-1").classList.remove('hide');
     document.getElementById("answers-2").classList.remove('hide');
 
+    UpdateSlideContent();
+    UpdateNav();
     UpdateControls();
   }
 
@@ -112,6 +115,9 @@ $(document).keydown(function(keyPressed) {
   
   // Tab
   else if (keyPressed.keyCode == 9) {
+    
+    keyPressed.preventDefault();
+    
     if (slideContentIndex < 4) {
       slideContentIndex++;
     }
@@ -175,14 +181,12 @@ $(document).ready(function(){
 
   slideContents[4] = slideContentFive;
 
-  // GetAnswers(slideContents);
+  GetAnswers(slideContents);
+  
+  UpdateNav();
+  UpdateSlideContent();
+  UpdateControls();
 
   console.log(slideContents);
-
-  document.getElementById("question").innerHTML = slideContents[0].question;
-  document.getElementById("answer-1").innerHTML = slideContents[0].answers[0];
-  document.getElementById("answer-2").innerHTML = slideContents[0].answers[1];
-  document.getElementById("answer-3").innerHTML = slideContents[0].answers[2];
-  document.getElementById("answer-4").innerHTML = slideContents[0].answers[3];
-
+  
 });
