@@ -15,13 +15,19 @@ function UpdateControls() {
     document.getElementById("response").value = "";
     document.getElementById("response").placeholder = "Your response";
     
+    document.getElementById("answers-1").classList.add('hide');
+    document.getElementById("answers-2").classList.add('hide');
+    
     document.responseForm.responseTextArea.focus();
   }
-  else {
+  else {        
     document.getElementById("directions-1").classList.add('hide');
     document.getElementById("directions-2").classList.remove('hide');
     document.getElementById("directions-3").classList.add('hide');
     document.getElementById("directions-4").classList.add('hide');
+    
+    document.getElementById("answers-1").classList.remove('hide');
+    document.getElementById("answers-2").classList.remove('hide');
   }
   
 }
