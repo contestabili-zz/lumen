@@ -21,7 +21,7 @@
   border: 1px solid transparent;
   @include border-radius($radius);
   @include transition;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

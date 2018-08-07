@@ -1,35 +1,37 @@
 var slideContents = [];
 var slideContentIndex = 0;
 var sectionIndex = 1;
+var videoIndex = 2;
+var videoSet = false;
 
 function UpdateControls() {
-  
+
   if (document.getElementById("answer-new").innerHTML == "") {
     console.log("Response textarea is empty");
-    
+
     document.getElementById("directions-1").classList.remove('hide');
     document.getElementById("directions-2").classList.add('hide');
     document.getElementById("directions-3").classList.remove('hide');
-    document.getElementById("directions-4").classList.remove('hide');
-    
+//    document.getElementById("directions-4").classList.remove('hide');
+
     document.getElementById("response").value = "";
     document.getElementById("response").placeholder = "Your response";
-    
+
     document.getElementById("answers-1").classList.add('hide');
     document.getElementById("answers-2").classList.add('hide');
-    
+
     document.responseForm.responseTextArea.focus();
   }
-  else {        
+  else {
     document.getElementById("directions-1").classList.add('hide');
     document.getElementById("directions-2").classList.remove('hide');
     document.getElementById("directions-3").classList.add('hide');
-    document.getElementById("directions-4").classList.add('hide');
-    
+//    document.getElementById("directions-4").classList.add('hide');
+
     document.getElementById("answers-1").classList.remove('hide');
     document.getElementById("answers-2").classList.remove('hide');
   }
-  
+
 }
 
 function UpdateSlideContent() {
@@ -44,22 +46,22 @@ function UpdateSlideContent() {
 }
 
 function UpdateSummary() {
-  
+
   document.getElementById("question-1").innerHTML = slideContents[0].question;
   document.getElementById("response-1").innerHTML = slideContents[0].newAnswer;
-  
+
   document.getElementById("question-2").innerHTML = slideContents[1].question;
   document.getElementById("response-2").innerHTML = slideContents[1].newAnswer;
-  
+
   document.getElementById("question-3").innerHTML = slideContents[2].question;
   document.getElementById("response-3").innerHTML = slideContents[2].newAnswer;
-  
+
   document.getElementById("question-4").innerHTML = slideContents[3].question;
   document.getElementById("response-4").innerHTML = slideContents[3].newAnswer;
-  
+
   document.getElementById("question-5").innerHTML = slideContents[4].question;
   document.getElementById("response-5").innerHTML = slideContents[4].newAnswer;
-  
+
 }
 
 function UpdateNav() {
@@ -76,7 +78,7 @@ function UpdateNav() {
 }
 
 $(document).keydown(function(keyPressed) {
-  
+
   // Enter
   if (keyPressed.keyCode == 13 && slideContents[slideContentIndex].newAnswer == "") {
     if (slideContentIndex == 0) SubmitAnswerOne();
@@ -87,43 +89,22 @@ $(document).keydown(function(keyPressed) {
 
     document.getElementById("answers-1").classList.remove('hide');
     document.getElementById("answers-2").classList.remove('hide');
-
-    UpdateSlideContent();
-    UpdateNav();
-    UpdateControls();
-  }
-
-  // Left arrow
-  else if (keyPressed.keyCode == 37) {
-    if (slideContentIndex > 0) {
-      slideContentIndex--;
-    }
-    else slideContentIndex = 4;
-
-    UpdateSlideContent();
-    UpdateNav();
-    UpdateControls();
     
-  }
-
-  // Right arrow
-  else if (keyPressed.keyCode == 39) {
-    if (slideContentIndex < 4) {
-      slideContentIndex++;
-    }
-    else slideContentIndex = 0;
+    var questionNavId = "question-" + (slideContentIndex + 1) + "-nav";
+    console.log("Question nav: " + questionNavId);
+    
+    document.getElementById(questionNavId).classList.add('answered');
 
     UpdateSlideContent();
     UpdateNav();
     UpdateControls();
   }
-  
-  
+
   // Tab
   else if (keyPressed.keyCode == 9) {
-    
+
     keyPressed.preventDefault();
-    
+
     if (slideContentIndex < 4) {
       slideContentIndex++;
     }
@@ -133,7 +114,7 @@ $(document).keydown(function(keyPressed) {
     UpdateNav();
     UpdateControls();
   }
-  
+
   // Escape
   else if (keyPressed.keyCode == 27) {
     if (sectionIndex == 1) {
@@ -143,7 +124,7 @@ $(document).keydown(function(keyPressed) {
       UpdateSummary();
       sectionIndex = 3;
     }
-    
+
     else if (sectionIndex == 3) {
       location.reload();
     }
@@ -188,11 +169,51 @@ $(document).ready(function(){
   slideContents[4] = slideContentFive;
 
   GetAnswers(slideContents);
-  
-  UpdateNav();
-  UpdateSlideContent();
-  UpdateControls();
-
   console.log(slideContents);
   
+//  GetVideoIndex(videoIndex);
+  console.log('Video index: ' + videoIndex);
+  
+  CheckVideoIndex();
+  
+  document.getElementById('video-1').addEventListener('ended',myHandler,false);
+    function myHandler(e) {
+      // What you want to do after the event
+      console.log('Video 1 ended');
+      document.getElementById("section-video-1").classList.add('hide');
+      document.getElementById("section-prompts").classList.remove('hide');
+      UpdateNav();
+      UpdateSlideContent();
+      UpdateControls();
+    }
+  
+  document.getElementById('video-2').addEventListener('ended',myHandler,false);
+    function myHandler(e) {
+      // What you want to do after the event
+      console.log('Video 2 ended');
+      document.getElementById("section-video-2").classList.add('hide');
+      document.getElementById("section-prompts").classList.remove('hide');
+      UpdateNav();
+      UpdateSlideContent();
+      UpdateControls();
+    }
 });
+
+//setInterval(function() {
+//  console.log('Interval');
+//  GetVideoIndex(videoIndex);
+//  CheckVideoIndex();
+//}, 5000);
+
+function CheckVideoIndex() {
+  if (videoIndex == 1 && !videoSet) {
+    videoSet = true;
+    document.getElementById("section-blank").classList.add('hide');
+    document.getElementById("section-video-1").classList.remove('hide');
+  }
+  else if (videoIndex == 2 && !videoSet) {
+    videoSet = true;
+    document.getElementById("section-blank").classList.add('hide');
+    document.getElementById("section-video-2").classList.remove('hide');
+  }
+}

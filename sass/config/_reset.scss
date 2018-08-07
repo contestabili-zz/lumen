@@ -101,3 +101,9 @@ hr {
 input, select {
     vertical-align:middle;
 }
+
+/// Kill Chrome scrollbar
+
+::-webkit-scrollbar {
+  display: none;
+}

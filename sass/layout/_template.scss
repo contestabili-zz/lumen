@@ -2,76 +2,96 @@
 //   Layout Styles for ....:
 // *******/
 
-body.lumen-wrapper{
+body.lumen-wrapper {
   background-color: $lumen-color1;
 }
+
+body.dome-kiosk-wrapper {
+  background-color: $lumen-color2;
+  color: $lumen-color1;
+  text-align: center;
+}
+
 .lumen-content {
   color: $lumen-color2;
+  &-mobile {
+    color: $lumen-color1;
+  }
 }
 
-
-.dome-questions-page {
-
+.active {
+  display: block !important;
+  opacity: 1 !important;
+  transition: $transition-speed;
+}
+.hide {
+  display: none;
+  opacity: 0;
+  transition: $transition-speed;
 }
 
+section.page-video-section,
 section.page-questions-section {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  position: relative;
+  background-color: $lumen-color1;
   color: $lumen-color2;
-  // margin: 0 auto;
-  //display: none;
-  // width: 100%;
-  // height: 600px;
 }
 
+
+
+// VIDEO SECTION
+////////////////////////
+.video-background {
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  right: 0;
+  bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+// QUESTIONS SECTION
+////////////////////////
 .questions-box {
   @include center(both);
   @include grid-column(10);
   display: none;
   opacity: 0;
-  transition-duration: .25s;
+  transition: $transition-speed;
 }
 
 .questions-box-slides {
-  // height: 80vh;
   overflow: hidden;
   position: relative;
+  padding: 0 45px;
    > h1.dome_title {
      display: none;
      opacity: 0;
    }
 }
 
-.questions-box-slider {}
-
-.active {
-  display: block !important;
-  opacity: 1 !important;
-  transition-duration: .25s;
+.responses {
+  opacity: 0.5;
 }
-
-// .hide {
-//   display: none;
-//   opacity: 0;
-//   transition-duration: .25s;
-// }
 
 .dome_grid-special {
   width: 140%;
-  padding: 0;
+  @include padding (0);
   margin-left: -20%;
 }
 
 .questions-nav {
-  position: fixed;
-  bottom: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 20px;
+  position: absolute;
+  margin-bottom: -120px;
+  @include center(bottom);
+  @include padding (20);
   text-align: center;
 }
+
 .section-pin {
   float: left;
   width: 10px;
@@ -81,10 +101,10 @@ section.page-questions-section {
   display: inline-block;
   margin: 0 10px;
   cursor: pointer;
-  border-radius: 50%;
+  @include border-radius(50%);
   opacity: .5;
 
-  transition-duration: .25s;
+  transition: $transition-speed;
   background-color: transparent;
 
   &:hover{
@@ -99,8 +119,9 @@ section.page-questions-section {
 }
 
 .dome_form {
-  padding: 0 10%;
+  padding: 0 15.5%;
 }
+
 .dome_input {
   color: $lumen-color2;
   border-bottom: 2px solid $lumen-color2;
@@ -116,8 +137,9 @@ section.page-questions-section {
   &-textarea {
     width: 100%;
     overflow: auto;
-    height: -webkit-fill-available;
-    max-height: 100px;
+    // height: -webkit-fill-available;
+    // max-height: 100px;
+    padding: 10px 0px;
   }
   &-submit {
 
@@ -126,32 +148,39 @@ section.page-questions-section {
 
 .dome_title {
   font-family: $lumen-font-bookmania;
-  font-weight: 800;
+  // font-weight: 800;
 
   &-center {
     text-align: center;
   }
 }
+
 .dome_title-1 {
   font-size: 64px;
-  line-height: calc(64px * 1);
+  line-height: calc(64px * 1.5);
 }
 
 .dome_title-2 {
-  font-size: 35px;
-  line-height: calc(35px * 1);
+  font-size: 23px;
+  line-height: calc(23px * 1.5);
+  padding: 0 30px;
 
   &-special {
     font-size: 42px;
     margin-top: -30px;
     margin-bottom: 30px;
-    text-align: center;;
+    text-align: center;
+    line-height: calc(42px * 1.25);
+    //max-width: 820px;
+
   }
 }
+
 .dome_title-3 {
   font-size: 32px;
   line-height: calc(32px * 1.5);
 }
+
 .dome_title-4 {
   font-size: 24px;
   line-height: calc(24px * 1);
@@ -160,7 +189,8 @@ section.page-questions-section {
 .dome-c {
   font-family: $lumen-font-raleway;
   font-weight: 400;
-  @include font-rem(20, 20);
+  font-size: 20px;
+  line-height:calc(20px * 1.5);
 
   &-l {
     font-size: 32px;
@@ -174,6 +204,7 @@ section.page-questions-section {
     line-height: calc(12px * 3);
   }
 }
+
 
 hr {
   border:none;
@@ -195,6 +226,7 @@ hr {
     @include clearFix();
   }
 }
+
 .keyboard-key {
   float: right;
 
@@ -204,6 +236,7 @@ hr {
     margin-right: 20px;
   }
 }
+
 .keyboard-key-return {
   float: left;
   background:url(../../assets/svg/enter.svg);
@@ -231,4 +264,34 @@ hr {
   width: 120px;
   margin: 0px auto;
   background-size: 119px;
+}
+
+
+
+// Kiosk UI
+////////////////////////
+
+section.lumen-page-sections {
+  position: relative;
+}
+.dome-kiosk-choices {
+  margin-top: -100px;
+  @include center(both);
+  @include grid-column(16);
+}
+.dome-kiosk-cards {
+  background-color: $lumen-color1;
+  color: $lumen-color2;
+  @include padding (0);
+  @include box-sizing(border-box);
+  @include border-radius($radius);
+  position: relative;
+
+}
+.dome-kiosk-cards .lumen_btn {
+  max-width: 100%;
+  width: 100%;
+  @include font-rem(35, 120);
+  font-weight: 100;
+  letter-spacing: 0.10px;
 }

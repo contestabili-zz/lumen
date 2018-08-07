@@ -5,7 +5,8 @@
 
 .question-card {
   background-color: $lumen-color3;
+  color: $lumen-color1;
   padding: 40px;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   @include border-radius($radius);
 }

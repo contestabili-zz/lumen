@@ -251,3 +251,40 @@ function SubmitAnswerFive() {
   console.log("Answer submitted: " + answer);
 
 };
+
+function GetVideoIndex(videoIndex) {
+  
+  // Answers to question 1
+  blockspring.runParsed("query-google-spreadsheet", {
+    // Here is where you need to decide what data you are grabbing with the Google query syntax
+    // I am finding elements that match the variable num, which is from a previous part of the code
+    // Google syntax makes you request columns with letters as opposed to your column titles.
+    "query": "SELECT A, B, C",
+    // This is the full URL of your sheet. Just copy and paste from your browser.
+    "url": "https://docs.google.com/spreadsheets/d/1H-Py5u_c_ugqLPfp0EcskjISn02eXgelRtppDZewHh4/edit?usp=sharing"
+    // Cache is false so that your browser does not run an old function when you change your code
+    }, { cache: false, expiry: 7200}, function(res) {
+    // All results are part of the res.params.data object.
+    // in my case, I requested two columns from my spreadsheet, one named skill and one named key.
+    // There is one matching row in this case, with two elements    
+    var data = res.params.data;
+    console.log('Data: ' + data);
+    var currentDate = new Date();
+    var lastData = data[data.length -1];
+    
+    console.log('Current date: ' + timeDifference);
+    console.log('Last data: ' + lastData);
+    
+    var timeDifference = currentDate - lastData['date'];
+    console.log('Time difference: ' + timeDifference);
+
+    // TO DO: Change to less than 5 seconds
+    if (timeDifference > 0) {
+      videoIndex = lastData['video'];
+    }
+    else {
+      videoIndex = 0;
+    }
+  });
+  
+}

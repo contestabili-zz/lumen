@@ -24,23 +24,6 @@
       -moz-osx-font-smoothing: auto;
   }
 }
-// Centering  | @include center; | @include center(true, false); | @include center(false, true);
-@mixin center($orientation: both) {
-	//position: absolute;
-    position: relative;
-	@if $orientation == both {
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	} @else if $orientation == horizontal {
-		left: 50%;
-		transform: translate(-50%, 0);
-	} @else if $orientation == vertical {
-		top: 50%;
-		transform: translate(0, -50%);
-	}
-}
-
 
 // Font text optimize legibility | @include improve-legibility;
 @mixin improve-legibility {
@@ -98,9 +81,9 @@
 // Border Radius | @include border-radius(0);
 // https://codepen.io/contestabili/pen/yEXEKo?editors=1100
 @mixin border-radius($radius) {
-  -webkit-border-radius: $radius + px;
-  -moz-border-radius: $radius + px;
-  border-radius: $radius + px;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
 }
 
 // Cross browser opacity | @include opacity(0.8);
@@ -138,6 +121,23 @@
   }
 }
 
+// Centering  | @include center; | @include center(true, false); | @include center(false, true);
+// @mixin center($orientation: both) {
+// 	//position: absolute;
+//     position: relative;
+// 	@if $orientation == both {
+// 		top: 50%;
+// 		left: 50%;
+// 		transform: translate(-50%, -50%);
+// 	} @else if $orientation == horizontal {
+// 		left: 50%;
+// 		transform: translate(-50%, 0);
+// 	} @else if $orientation == vertical {
+// 		top: 50%;
+// 		transform: translate(0, -50%);
+// 	}
+// }
+
 // Box-sizing | @include box-sizing(border-box);
 @mixin box-sizing($box-model) {
   -webkit-box-sizing: $box-model;
@@ -158,19 +158,8 @@
       clear: both;
   }
 }
-// .clearfix {
-//     &:before,
-//     &:after {
-//         content: " ";
-//         display: table;
-//     }
-//     &:after {
-//         clear: both;
-//     }
-// }
 
-// Margins & Paddings
-// @include padding-top ();
+// Margins | @include margin (); | @include margin-top (); | @include margin-right (); | @include margin-bottom (); | @include margin-left ();
 @mixin margin($margin) {
   margin: $margin + px;
   margin: (0.0625 * $margin) + rem;
@@ -191,10 +180,7 @@
   margin-left: $margin + px;
   margin-left: (0.0625 * $margin) + rem;
 }
-// @mixin paddings($topBottom, $leftRight) {
-//   padding: $topBottom + px, $leftRight + px;
-//   // padding: (0.0625 * $topBottom) + rem, (0.0625 * $leftRight) + rem;
-// }
+// Padding | @include padding (); | @include padding-top (); | @include padding-right (); | @include padding-bottom (); | @include padding-left ();
 @mixin padding($padding) {
   padding: $padding + px;
   padding: (0.0625 * $padding) + rem;
@@ -215,6 +201,10 @@
   padding-left: $padding + px;
   padding-left: (0.0625 * $padding) + rem;
 }
+// @mixin paddings($topBottom, $leftRight) {
+//   padding: $topBottom + px, $leftRight + px;
+//   // padding: (0.0625 * $topBottom) + rem, (0.0625 * $leftRight) + rem;
+// }
 
 // Margins & Paddings | @include margin-padding(all, 5% 0, bottom, 5%); | @include margin-padding(all, 0 auto 5%, null, null);
 // https://stackoverflow.com/questions/45194144/why-use-mixin-of-padding-and-margin-in-sass

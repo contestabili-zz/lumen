@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <title>Lumen</title>
+  <link href="css/main.css" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script src="https://cdn.blockspring.com/blockspring.js"></script>
+
+  <script src="js/sheets.js"></script>
+  <script src="js/functionality.js"></script>
+
+  <!--<script type="text/javascript" src="js/prompt-min.js"></script>-->
+  <script src="js/GGS.js"></script>
+  <!-- <script>
+    $('li.section-pin').on('click', function(){
+        //alert('clicked');
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    });
+  </script> -->
+</head>
+  <body lang="en" class="lumen-wrapper">
+
+
+
+      <section id="section-1" class="lumen-page-sections page-video-section active">
+        <video autoplay loop class="video-background" muted>
+          <!-- <source src="assets/video/lumen_video.mov" type="video/quicktime"> -->
+          <source src="assets/video/city.mp4" type="video/mp4">
+          <!-- <source src="http://teragigame.ga/files/madcowfilms.webm" type="video/webm"> -->
+        </video>
+      </section>
+
+      <section id="section-2" class="lumen-page-sections page-questions-section lumen-grid ">
+        <div id="state-1" class="questions-box questions-box-slider active">
+
+          <div id="answers-1" class="lumen_grid dome_grid-special dome_title dome_title-center hide">
+            <div class="lumen-grid_col-4">
+              <h3 id="answer-1" class="dome_title-2"></h3>
+            </div>
+            <div class="lumen-grid_col-8">
+              <h5 id="answer-new" class="dome_title-2-special"></h5>
+            </div>
+            <div class="lumen-grid_col-4">
+              <h5 id="answer-2" class="dome_title-2"></h5>
+            </div>
+          </div>
+
+          <div class="questions-box-slides">
+            <h1 id="question" class="dome_title dome_title-center dome_title-1 active"></h1>
+          </div>
+
+          <div id="directions-1" class="directions">
+            <span class="keyboard-key-arrow"></span>
+            <p class="dome-c dome-c-s">Use arrow keys to change the question</p>
+          </div>
+
+          <div id="directions-2" class="directions hide">
+            <div class="split">
+              <span class="keyboard-key-tab-ect"></span>
+              <p class="dome-c dome-c-s">Press tab to think about another question</p>
+            </div>
+            <div class="split">
+              <span class="keyboard-key-tab-ect"></span>
+              <p class="dome-c dome-c-s">Press ESC to exit the experience</p>
+            </div>
+          </div>
+
+          <form id="directions-3" class="dome_form" name="responseForm">
+            <textarea type="text" id="response" class="dome_input lumen_input-textarea dome-c m-bottom-s" name="responseTextArea" placeholder="Your response"></textarea>
+            <div class="keyboard-key">
+              <span>Press enter to submit</span>
+              <input type="submit" value="" class="lumen_input-submit keyboard-key-return">
+            </div>
+          </form>
+
+          <div id="answers-2" class="lumen_grid dome_grid-special dome_title dome_title-center hide">
+            <div class="lumen-grid_col-4">
+              <h3 id="answer-3" class="dome_title-2"></h3>
+            </div>
+            <div class="lumen-grid_col-8" style="text-indent: -9999px;"> X </div>
+            <div class="lumen-grid_col-4">
+              <h5 id="answer-4" class="dome_title-2"></h5>
+            </div>
+          </div>
+
+          <ul id="directions-4" class="questions-nav">
+            <li id="question-1-nav" class="section-pin active"></li>
+            <li id="question-2-nav" class="section-pin"></li>
+            <li id="question-3-nav" class="section-pin"></li>
+            <li id="question-4-nav" class="section-pin"></li>
+            <li id="question-5-nav" class="section-pin"></li>
+          </ul>
+        </div>
+
+        <div id="state-3" class="questions-box">
+          <div class="lumen_grid dome_title">
+            <div class="lumen-grid_col-3 off-1">
+              <h3 class="dome_title dome_title-4">Here are the questions you pondered upon.</h3>
+            </div>
+            <div class="lumen-grid_col-10 off-1">
+              <h3 id="question-1" class="dome_title lumen_title-xs m-bottom-s"></h3>
+              <p  id="response-1" class="dome-c dome-c-l "></p>
+              <h3 id="question-2" class="dome_title lumen_title-xs m-bottom-s"></h3>
+              <p  id="response-2" class="dome-c dome-c-l "></p>
+              <h3 id="question-3" class="dome_title lumen_title-xs m-bottom-s"></h3>
+              <p  id="response-3" class="dome-c dome-c-l "></p>
+              <h3 id="question-4" class="dome_title lumen_title-xs m-bottom-s"></h3>
+              <p  id="response-4" class="dome-c dome-c-l "></p>
+              <h3 id="question-5" class="dome_title lumen_title-xs m-bottom-s"></h3>
+              <p  id="response-5" class="dome-c dome-c-l "></p>
+            </div>
+          </div>
+          <div class="lumen-grid_col-10 off-3">
+            <h1 class="dome_title dome_title-center dome_title-3 m-top-xl m-bottom-s">Thank you for taking part in Lumen. We wish you a fulfilling life.</h1>
+            <p class="dome_title dome_title-center dome-c m-bottom-s">www.lumen.world</p>
+          </div>
+        </div>
+      </section>
+  </body>
+</html>

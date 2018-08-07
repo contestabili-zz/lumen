@@ -101,7 +101,7 @@
 .row-12 .col-11 {
   float: left;
   padding: 0 10px;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   min-height: 1px;
 }
 @media screen and (max-width: 400px) {
@@ -224,7 +224,7 @@
 .row-10 .col-9 {
   float: left;
   padding: 0 10px;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   min-height: 1px;
 }
 @media screen and (max-width: 400px) {
@@ -278,7 +278,7 @@
 .split .half {
   float: left;
   padding: 0 15px;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   min-height: 1px;
 }
 @media screen and (max-width: 400px) {
@@ -328,7 +328,7 @@
 .split-3 .thirds.thirds-2 {
   float: left;
   padding: 0 5px;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   min-height: 1px;
 }
 @media screen and (max-width: 400px) {
