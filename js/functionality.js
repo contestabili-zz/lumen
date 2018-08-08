@@ -1,8 +1,9 @@
 var slideContents = [];
 var slideContentIndex = 0;
 var sectionIndex = 1;
-var videoIndex = 2;
-var videoSet = false;
+var videoSelection = [];
+var kioskSelection = [];
+var videoPlaying = false;
 
 function UpdateControls() {
 
@@ -126,7 +127,13 @@ $(document).keydown(function(keyPressed) {
     }
 
     else if (sectionIndex == 3) {
-      location.reload();
+      videoPlaying = false;
+      SubmitOff();
+      
+      var delayInMilliseconds = 5000;
+      setTimeout(function() {
+        location.reload();
+      }, delayInMilliseconds);
     }
   }
 });
@@ -171,11 +178,6 @@ $(document).ready(function(){
   GetAnswers(slideContents);
   console.log(slideContents);
   
-//  GetVideoIndex(videoIndex);
-  console.log('Video index: ' + videoIndex);
-  
-  CheckVideoIndex();
-  
   document.getElementById('video-1').addEventListener('ended',myHandler,false);
     function myHandler(e) {
       // What you want to do after the event
@@ -199,21 +201,40 @@ $(document).ready(function(){
     }
 });
 
-//setInterval(function() {
-//  console.log('Interval');
-//  GetVideoIndex(videoIndex);
-//  CheckVideoIndex();
-//}, 5000);
+setInterval(function() {
+  console.log('Interval');
+  
+  if (!videoPlaying) {
+    GetKioskSelection(kioskSelection);
+  
+    var delayInMilliseconds = 5000; //1 second
 
-function CheckVideoIndex() {
-  if (videoIndex == 1 && !videoSet) {
-    videoSet = true;
-    document.getElementById("section-blank").classList.add('hide');
-    document.getElementById("section-video-1").classList.remove('hide');
+    setTimeout(function() {
+      if (kioskSelection[0] == "on") {
+        GetVideoSelection(videoSelection);
+
+        setTimeout(function() {
+          if (videoSelection[0] == "hike") {
+            console.log("Play hiking video");
+            document.getElementById("section-blank").classList.add('hide');
+            document.getElementById("section-video-1").classList.remove('hide');
+          }
+          else if (videoSelection[0] =="city") {
+            console.log("Play city video");
+            document.getElementById("section-blank").classList.add('hide');
+            document.getElementById("section-video-2").classList.remove('hide');
+          }    
+        }, delayInMilliseconds);
+        
+        console.log('Lower volume');
+        song.animate({volume: 0}, 1000);
+        
+        document.getElementById("song").mute = true;
+        
+        videoPlaying = true;
+      }
+
+    }, delayInMilliseconds);
   }
-  else if (videoIndex == 2 && !videoSet) {
-    videoSet = true;
-    document.getElementById("section-blank").classList.add('hide');
-    document.getElementById("section-video-2").classList.remove('hide');
-  }
-}
+  
+}, 5000);
