@@ -17,7 +17,7 @@ body.dome-kiosk-wrapper {
   color: $lumen-color2;
   &-mobile {
     color: $lumen-color1;
-  }
+  } 
 }
 
 .active {
@@ -207,9 +207,9 @@ section.page-questions-section {
     font-weight: 300;
   }
   &-s {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 400;
-    line-height: calc(12px * 3);
+    line-height: calc(17px * 3);
   }
 }
 
@@ -223,10 +223,10 @@ hr {
 }
 
 .directions {
-  width: 600px;
-  margin: 40px auto 140px;
-  text-align: center;
-  margin-top: 40px;
+	width: 820px;
+	margin: 40px auto 140px;
+	text-align: center;
+	margin-top: 20px;
 
   div.split {
     float: left;
@@ -239,39 +239,48 @@ hr {
   float: right;
 
   span {
-    font-size: 32px;
+    font-size: 28px;
     float: left;
     margin-right: 20px;
   }
 }
 
 .keyboard-key-return {
-  float: left;
-  background:url(../../assets/svg/enter.svg);
-  border:0;
-  display:block;
-  height:60px;
-  width: 125px;
+	float: left;
+    background: url(../../assets/svg/enter.svg) no-repeat;
+    border: 0;
+    display: block;
+    height: 48px;
+    width: 100px;
 }
 
 .keyboard-key-arrow {
-  background:url(../../assets/svg/arrows.svg);
-  border: 0;
-  display: block;
-  height: 36px;
-  width: 80px;
-  margin: 10px auto 0px;
-  background-size: 80px;
+	background:url(../../assets/svg/arrows.svg) no-repeat;
+	border: 0;
+	display: block;
+	height: 36px;
+	width: 80px;
+	margin: 10px auto 0px;
+	background-size: 80px;
 }
 
 .keyboard-key-tab {
-  background: url(../../assets/svg/button-tab.svg);
-  border: 0;
-  display: block;
-  height: 49px;
-  width: 80px;
-  margin: 10px auto 0px;
-  background-size: 80px;
+	background: url(../../assets/svg/button-tab.svg) no-repeat;
+	border: 0;
+	display: block;
+	height: 49px;
+	width: 80px;
+	margin: 10px auto 0px;
+	background-size: 80px;
+}
+.keyboard-key-esc {
+	background: url(../../assets/svg/button-esc.svg) no-repeat;
+	border: 0;
+	display: block;
+	height: 49px;
+	width: 80px;
+	margin: 10px auto 0px;
+	background-size: 80px;
 }
 
 
