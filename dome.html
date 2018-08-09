@@ -15,29 +15,13 @@
   <script src="js/functionality.js"></script>
 
   <script src="js/GGS.js"></script>
-  
-  <style>
-    .answered {
-      background-color: aquamarine !important;
-      border: 1px solid aquamarine !important;
-    }
-    
-    video#video-1,
-    video#video-2 {
-      width: 50% !important;
-    }
-  </style>
 </head>
   <body lang="en" class="lumen-wrapper">
-    
-    <section id="section-blank" class="lumen-page-sections page-video-section">
-    
-    <audio id="song" loop autoplay>
-      <source src="assets/audio/song.mp3" type="audio/mpeg">
-    </audio>
-    
+
+    <section id="section-blank" class="lumen-page-sections page-video-section hide">
+<!--      <audio id="song" loop autoplay mute> <source src="assets/audio/song.mp3" type="audio/mpeg"> </audio>-->
     </section>
-    
+
 <!--    TO DO: Remove controls from videos -->
 
     <section id="section-video-1" class="lumen-page-sections page-video-section hide">
@@ -47,12 +31,12 @@
     </section>
 
     <section id="section-video-2" class="lumen-page-sections page-video-section hide">
-        <video id="video-2" controls autoplay class="video-background" muted>
+        <video id="video-2" autoplay class="video-background">
           <source src="assets/video/city.mp4" type="video/mp4">
         </video>
-      </section>
+    </section>
 
-    <section id="section-prompts" class="lumen-page-sections page-questions-section lumen-grid hide">
+    <section id="section-prompts" class="lumen-page-sections page-questions-section lumen-grid">
         <div id="state-1" class="questions-box questions-box-slider active">
 
           <div id="answers-1" class="lumen_grid dome_grid-special dome_title dome_title-center hide">
@@ -73,26 +57,26 @@
 
 <!--          TO DO: Change to tab -->
           <div id="directions-1" class="directions">
-            <span class="keyboard-key-arrow"></span>
-            <p class="dome-c dome-c-s">Use arrow keys to change the question</p>
+            <span class="keyboard-key-tab"></span>
+            <p class="dome-c dome-c-s">Use tab keys to change the question</p>
           </div>
 
           <div id="directions-2" class="directions hide">
             <div class="split">
-              <span class="keyboard-key-tab-ect"></span>
+              <span class="keyboard-key-tab"></span>
               <p class="dome-c dome-c-s">Press tab to think about another question</p>
             </div>
             <div class="split">
-              <span class="keyboard-key-tab-ect"></span>
+              <span class="keyboard-key-tab"></span>
               <p class="dome-c dome-c-s">Press ESC to exit the experience</p>
             </div>
           </div>
 
           <form id="directions-3" class="dome_form" name="responseForm">
-            <textarea type="text" id="response" class="dome_input lumen_input-textarea dome-c m-bottom-s" name="responseTextArea" placeholder="Your response"></textarea>
+            <textarea type="text" id="response" class="dome_input dome_input-textarea dome-c m-bottom-s" name="responseTextArea" placeholder="Your response"></textarea>
             <div class="keyboard-key">
               <span>Press enter to submit</span>
-              <input type="submit" value="" class="lumen_input-submit keyboard-key-return">
+              <input type="submit" value="" class="dome_input-submit keyboard-key-return">
             </div>
           </form>
 
@@ -137,7 +121,17 @@
             <h1 class="dome_title dome_title-center dome_title-3 m-top-xl m-bottom-s">Thank you for taking part in Lumen. We wish you a fulfilling life.</h1>
             <p class="dome_title dome_title-center dome-c m-bottom-s">www.lumen.world</p>
           </div>
-        </div>
+<!--
+          <form id="#" class="dome_form dome_form m-top-l" name="responseForm">
+            <input type="text" id="#" class="dome_input dome_input-email dome-c m-bottom-s" name="responseTextArea" placeholder="Your Email">
+            <div class="keyboard-key">
+              <span>Press  to exit the experience </span>
+              <input type="submit" value="" class="dome_input-submit keyboard-key-return">
+            </div>
+          </form>
+-->
+      </div>
+
       </section>
   </body>
 </html>

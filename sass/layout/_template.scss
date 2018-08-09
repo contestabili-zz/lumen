@@ -3,7 +3,8 @@
 // *******/
 
 body.lumen-wrapper {
-  background-color: $lumen-color1;
+//  background-color: $lumen-color1;
+  background-color: black;
 }
 
 body.dome-kiosk-wrapper {
@@ -32,7 +33,7 @@ body.dome-kiosk-wrapper {
 
 section.page-video-section,
 section.page-questions-section {
-  background-color: $lumen-color1;
+//  background-color: $lumen-color1;
   color: $lumen-color2;
 }
 
@@ -135,6 +136,13 @@ section.page-questions-section {
     color: $lumen-color2;
   }
   &-textarea {
+    width: 100%;
+    overflow: auto;
+    // height: -webkit-fill-available;
+    // max-height: 100px;
+    padding: 10px 0px;
+  }
+  &-email {
     width: 100%;
     overflow: auto;
     // height: -webkit-fill-available;
@@ -256,14 +264,14 @@ hr {
   background-size: 80px;
 }
 
-.keyboard-key-tab-ect {
-  background:url(../../assets/svg/enter.svg);
+.keyboard-key-tab {
+  background: url(../../assets/svg/button-tab.svg);
   border: 0;
   display: block;
-  height: 56px;
-  width: 120px;
-  margin: 0px auto;
-  background-size: 119px;
+  height: 49px;
+  width: 80px;
+  margin: 10px auto 0px;
+  background-size: 80px;
 }
 
 

@@ -90,10 +90,10 @@ $(document).keydown(function(keyPressed) {
 
     document.getElementById("answers-1").classList.remove('hide');
     document.getElementById("answers-2").classList.remove('hide');
-    
+
     var questionNavId = "question-" + (slideContentIndex + 1) + "-nav";
     console.log("Question nav: " + questionNavId);
-    
+
     document.getElementById(questionNavId).classList.add('answered');
 
     UpdateSlideContent();
@@ -129,7 +129,7 @@ $(document).keydown(function(keyPressed) {
     else if (sectionIndex == 3) {
       videoPlaying = false;
       SubmitOff();
-      
+
       var delayInMilliseconds = 5000;
       setTimeout(function() {
         location.reload();
@@ -177,7 +177,7 @@ $(document).ready(function(){
 
   GetAnswers(slideContents);
   console.log(slideContents);
-  
+
   document.getElementById('video-1').addEventListener('ended',myHandler,false);
     function myHandler(e) {
       // What you want to do after the event
@@ -188,7 +188,7 @@ $(document).ready(function(){
       UpdateSlideContent();
       UpdateControls();
     }
-  
+
   document.getElementById('video-2').addEventListener('ended',myHandler,false);
     function myHandler(e) {
       // What you want to do after the event
@@ -201,40 +201,40 @@ $(document).ready(function(){
     }
 });
 
-setInterval(function() {
-  console.log('Interval');
-  
-  if (!videoPlaying) {
-    GetKioskSelection(kioskSelection);
-  
-    var delayInMilliseconds = 5000; //1 second
-
-    setTimeout(function() {
-      if (kioskSelection[0] == "on") {
-        GetVideoSelection(videoSelection);
-
-        setTimeout(function() {
-          if (videoSelection[0] == "hike") {
-            console.log("Play hiking video");
-            document.getElementById("section-blank").classList.add('hide');
-            document.getElementById("section-video-1").classList.remove('hide');
-          }
-          else if (videoSelection[0] =="city") {
-            console.log("Play city video");
-            document.getElementById("section-blank").classList.add('hide');
-            document.getElementById("section-video-2").classList.remove('hide');
-          }    
-        }, delayInMilliseconds);
-        
-        console.log('Lower volume');
-        song.animate({volume: 0}, 1000);
-        
-        document.getElementById("song").mute = true;
-        
-        videoPlaying = true;
-      }
-
-    }, delayInMilliseconds);
-  }
-  
-}, 5000);
+//setInterval(function() {
+//   console.log('Interval');
+//
+//   if (!videoPlaying) {
+//     GetKioskSelection(kioskSelection);
+//
+//     var delayInMilliseconds = 5000; //1 second
+//
+//     setTimeout(function() {
+//       if (kioskSelection[0] == "on") {
+//         GetVideoSelection(videoSelection);
+//
+//         setTimeout(function() {
+//           if (videoSelection[0] == "hike") {
+//             console.log("Play hiking video");
+//             document.getElementById("section-blank").classList.add('hide');
+//             document.getElementById("section-video-1").classList.remove('hide');
+//           }
+//           else if (videoSelection[0] =="city") {
+//             console.log("Play city video");
+//             document.getElementById("section-blank").classList.add('hide');
+//             document.getElementById("section-video-2").classList.remove('hide');
+//           }
+//         }, delayInMilliseconds);
+//
+//         console.log('Lower volume');
+//         song.animate({volume: 0}, 1000);
+//
+//         document.getElementById("song").mute = true;
+//
+//         videoPlaying = true;
+//       }
+//
+//     }, delayInMilliseconds);
+//   }
+//
+// }, 5000);
