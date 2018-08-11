@@ -201,40 +201,40 @@ $(document).ready(function(){
     }
 });
 
-//setInterval(function() {
-//   console.log('Interval');
-//
-//   if (!videoPlaying) {
-//     GetKioskSelection(kioskSelection);
-//
-//     var delayInMilliseconds = 5000; //1 second
-//
-//     setTimeout(function() {
-//       if (kioskSelection[0] == "on") {
-//         GetVideoSelection(videoSelection);
-//
-//         setTimeout(function() {
-//           if (videoSelection[0] == "hike") {
-//             console.log("Play hiking video");
-//             document.getElementById("section-blank").classList.add('hide');
-//             document.getElementById("section-video-1").classList.remove('hide');
-//           }
-//           else if (videoSelection[0] =="city") {
-//             console.log("Play city video");
-//             document.getElementById("section-blank").classList.add('hide');
-//             document.getElementById("section-video-2").classList.remove('hide');
-//           }
-//         }, delayInMilliseconds);
-//
-//         console.log('Lower volume');
-//         song.animate({volume: 0}, 1000);
-//
-//         document.getElementById("song").mute = true;
-//
-//         videoPlaying = true;
-//       }
-//
-//     }, delayInMilliseconds);
-//   }
-//
-// }, 5000);
+setInterval(function() {
+   console.log('Interval');
+
+   if (!videoPlaying) {
+     GetKioskSelection(kioskSelection);
+
+     var delayInMilliseconds = 5000; //1 second
+
+     setTimeout(function() {
+       if (kioskSelection[0] == "on") {
+         GetVideoSelection(videoSelection);
+
+         setTimeout(function() {
+           if (videoSelection[0] == "hike") {
+             console.log("Play hiking video");
+             document.getElementById("section-blank").classList.add('hide');
+             document.getElementById("section-video-1").classList.remove('hide');
+           }
+           else if (videoSelection[0] =="city") {
+             console.log("Play city video");
+             document.getElementById("section-blank").classList.add('hide');
+             document.getElementById("section-video-2").classList.remove('hide');
+           }
+         }, delayInMilliseconds);
+
+         console.log('Lower volume');
+         song.animate({volume: 0}, 1000);
+
+         document.getElementById("song").mute = true;
+
+         videoPlaying = true;
+       }
+
+     }, delayInMilliseconds);
+   }
+
+ }, 5000);

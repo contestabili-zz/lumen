@@ -78,6 +78,10 @@ section.page-questions-section {
 .responses {
   opacity: 0.5;
 }
+.answered {
+	background-color: white !important;
+	opacity: 0.5;
+}
 
 .dome_grid-special {
   width: 140%;
@@ -172,6 +176,7 @@ section.page-questions-section {
   font-size: 23px;
   line-height: calc(23px * 1.5);
   padding: 0 30px;
+	opacity: 0.5;
 
   &-special {
     font-size: 42px;
