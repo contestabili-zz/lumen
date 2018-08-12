@@ -26,7 +26,7 @@ body.dome-kiosk-wrapper {
   transition: $transition-speed;
 }
 .hide {
-  display: none;
+  display: none !important;
   opacity: 0;
   transition: $transition-speed;
 }

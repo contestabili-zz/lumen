@@ -4,6 +4,9 @@ var sectionIndex = 1;
 var videoSelection = [];
 var kioskSelection = [];
 var videoPlaying = false;
+var delayInMilliseconds = 5000; 
+var live = false;
+var song = new Audio('assets/audio/song.mp3');  
 
 function UpdateControls() {
 
@@ -129,6 +132,7 @@ $(document).keydown(function(keyPressed) {
     else if (sectionIndex == 3) {
       videoPlaying = false;
       SubmitOff();
+      FadeAudio("out");
 
       var delayInMilliseconds = 5000;
       setTimeout(function() {
@@ -139,54 +143,58 @@ $(document).keydown(function(keyPressed) {
 });
 
 $(document).ready(function(){
-
+  
   var slideContentOne = new Object();
-  slideContentOne.question = "What do you feel most grateful for in your life right now?";
-  slideContentOne.answers = ["A", "B", "C", "D"];
+  slideContentOne.question = "What matters most to you in life?";
+  slideContentOne.answers = ["My friends and my family", "Being able to do meaningful work", "Having the energy to do the things that I love the most", "my family and friends and my health"];
   slideContentOne.newAnswer = "";
 
   slideContents[0] = slideContentOne;
 
   var slideContentTwo = new Object();
-  slideContentTwo.question = "When you think about the end of life, what is most important to you?";
-  slideContentTwo.answers = ["E", "F", "G", "H"];
+  slideContentTwo.question = "If today was your last, what would you do?";
+  slideContentTwo.answers = ["spend it with family and friends", "hangout with friends, call my family and just relax", "I might spend all my money on steam", "I would go eat pizza"];
   slideContentTwo.newAnswer = "";
 
   slideContents[1] = slideContentTwo;
 
   var slideContentThree = new Object();
-  slideContentThree.question = "What do you consider a 'good' death?";
-  slideContentThree.answers = ["I", "J", "K", "L"];
+  slideContentThree.question = "If you were about to die, what things would feel unresolved?";
+  slideContentThree.answers = ["Being around my family", "Being at home and in a warm bed", "Not losing my mind", "Having the physical ability to be able to do whatever I want"];
   slideContentThree.newAnswer = "";
 
   slideContents[2] = slideContentThree;
 
   var slideContentFour = new Object();
-  slideContentFour.question = "If today was your last, what would you do?";
-  slideContentFour.answers = ["M", "N", "O", "P"];
+  slideContentFour.question = "What do you consider a “good” death?";
+  slideContentFour.answers = ["i would like to hopefully die in my sleep peaceful without immense pain", "Every death is good", "Being with someone I love", "Dying in my sleep"];
   slideContentFour.newAnswer = "";
 
   slideContents[3] = slideContentFour;
 
   var slideContentFive = new Object();
-  slideContentFive.question = "If you were about to die, what things would feel unresolved?";
-  slideContentFive.answers = ["Q", "R", "S", "T"];
+  slideContentFive.question = "What do you feel most grateful for in your life right now?";
+  slideContentFive.answers = ["My friends and my family", "Being able to do meaningful work", "Having the energy to do the things that I love the most", "my family and friends and my health"];
   slideContentFive.newAnswer = "";
 
   slideContents[4] = slideContentFive;
-
+  
   GetAnswers(slideContents);
+  UpdateSlideContent();
+  UpdateNav();
+  UpdateControls();
+  
   console.log(slideContents);
 
   document.getElementById('video-1').addEventListener('ended',myHandler,false);
     function myHandler(e) {
-      // What you want to do after the event
       console.log('Video 1 ended');
       document.getElementById("section-video-1").classList.add('hide');
       document.getElementById("section-prompts").classList.remove('hide');
       UpdateNav();
       UpdateSlideContent();
       UpdateControls();
+      FadeAudio("in");
     }
 
   document.getElementById('video-2').addEventListener('ended',myHandler,false);
@@ -198,43 +206,77 @@ $(document).ready(function(){
       UpdateNav();
       UpdateSlideContent();
       UpdateControls();
+      FadeAudio("in");
     }
 });
 
-setInterval(function() {
-   console.log('Interval');
+//setInterval(function() {
+// console.log('Interval');
+//
+// if (!videoPlaying) {
+//   GetKioskSelection(kioskSelection);
+//   kioskSelection[0] = "on";
+//
+//   setTimeout(function() {
+//     if (kioskSelection[0] == "on") {
+//
+//       GetVideoSelection(videoSelection);
+//       videoSelection[0] = "hike";
+//
+//       setTimeout(function() {
+//         if (videoSelection[0] == "hike") {
+//           console.log("Play hiking video");
+//           document.getElementById("section-blank").classList.add('hide');
+//           document.getElementById("section-video-1").classList.remove('hide');
+//           var video = document.getElementById("video-1"); 
+//           video.play();
+//         }
+//         else if (videoSelection[0] =="city") {
+//           console.log("Play city video");
+//           document.getElementById("section-blank").classList.add('hide');
+//           document.getElementById("section-video-2").classList.remove('hide');
+//           var video = document.getElementById("video-2"); 
+//           video.play();
+//         }
+//       }, delayInMilliseconds);
+//
+//       videoPlaying = true;
+//     }
+//
+//   }, delayInMilliseconds);
+// }
+//
+//}, delayInMilliseconds);
 
-   if (!videoPlaying) {
-     GetKioskSelection(kioskSelection);
-
-     var delayInMilliseconds = 5000; //1 second
-
-     setTimeout(function() {
-       if (kioskSelection[0] == "on") {
-         GetVideoSelection(videoSelection);
-
-         setTimeout(function() {
-           if (videoSelection[0] == "hike") {
-             console.log("Play hiking video");
-             document.getElementById("section-blank").classList.add('hide');
-             document.getElementById("section-video-1").classList.remove('hide');
-           }
-           else if (videoSelection[0] =="city") {
-             console.log("Play city video");
-             document.getElementById("section-blank").classList.add('hide');
-             document.getElementById("section-video-2").classList.remove('hide');
-           }
-         }, delayInMilliseconds);
-
-         console.log('Lower volume');
-         song.animate({volume: 0}, 1000);
-
-         document.getElementById("song").mute = true;
-
-         videoPlaying = true;
-       }
-
-     }, delayInMilliseconds);
-   }
-
- }, 5000);
+function FadeAudio(setting) {
+  if (setting == "out") {
+    console.log("Fade out song");
+    
+    var fadeOutInterval = setInterval(function(){
+      actualVolume = (parseFloat(actualVolume) - 0.1).toFixed(1);
+      if(actualVolume >= 0){
+        song.volume = actualVolume;
+      } else {
+        song.pause();
+        status = 'pause';
+        clearInterval(fadeOutInterval);
+      }
+    }, 1000);
+    
+  }
+  else if (setting == "in") {
+    console.log("Fade in song");
+    
+    var actualVolume = 0;
+    song.play();
+    song.volume = 0;
+    var fadeInInterval = setInterval(function(){
+      actualVolume = (parseFloat(actualVolume) + 0.1).toFixed(1);
+      if(actualVolume <= 1){
+          song.volume = actualVolume;
+      } else {
+          clearInterval(fadeInInterval);
+      }
+    }, 1000);
+  }
+}
