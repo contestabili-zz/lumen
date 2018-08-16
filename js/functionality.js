@@ -5,8 +5,8 @@ var videoSelection = [];
 var kioskSelection = [];
 var videoPlaying = false;
 var delayInMilliseconds = 5000; 
-var live = false;
 var song = new Audio('assets/audio/song.mp3');  
+var live = false;
 
 function UpdateControls() {
 
@@ -218,45 +218,48 @@ $(document).ready(function(){
       UpdateControls();
       FadeAudio("in");
     }
+  
+  // Remove if live
+  kioskSelection[0] = "on";
+  videoSelection[0] = "city";
+  
 });
 
-//setInterval(function() {
-// console.log('Interval');
-//
-// if (!videoPlaying) {
-//   GetKioskSelection(kioskSelection);
-//   kioskSelection[0] = "on";
-//
-//   setTimeout(function() {
-//     if (kioskSelection[0] == "on") {
-//
-//       GetVideoSelection(videoSelection);
-//       videoSelection[0] = "city";
-//
-//       setTimeout(function() {
-//         if (videoSelection[0] == "hike") {
-//           console.log("Play hiking video");
-//           document.getElementById("section-blank").classList.add('hide');
-//           document.getElementById("section-video-1").classList.remove('hide');
-//           var video = document.getElementById("video-1"); 
-//           video.play();
-//         }
-//         else if (videoSelection[0] =="city") {
-//           console.log("Play city video");
-//           document.getElementById("section-blank").classList.add('hide');
-//           document.getElementById("section-video-2").classList.remove('hide');
-//           var video = document.getElementById("video-2"); 
-//           video.play();
-//         }
-//       }, delayInMilliseconds);
-//
-//       videoPlaying = true;
-//     }
-//
-//   }, delayInMilliseconds);
-// }
-//
-//}, delayInMilliseconds);
+setInterval(function() {
+ console.log('Interval');
+
+ if (!videoPlaying) {
+   GetKioskSelection(kioskSelection);
+
+   setTimeout(function() {
+     if (kioskSelection[0] == "on") {
+
+       GetVideoSelection(videoSelection);
+
+       setTimeout(function() {
+         if (videoSelection[0] == "hike") {
+           console.log("Play hiking video");
+           document.getElementById("section-blank").classList.add('hide');
+           document.getElementById("section-video-1").classList.remove('hide');
+           var video = document.getElementById("video-1"); 
+           video.play();
+         }
+         else if (videoSelection[0] =="city") {
+           console.log("Play city video");
+           document.getElementById("section-blank").classList.add('hide');
+           document.getElementById("section-video-2").classList.remove('hide');
+           var video = document.getElementById("video-2"); 
+           video.play();
+         }
+       }, delayInMilliseconds);
+
+       videoPlaying = true;
+     }
+
+   }, delayInMilliseconds);
+ }
+
+}, delayInMilliseconds);
 
 function FadeAudio(setting) {
   if (setting == "out") {
