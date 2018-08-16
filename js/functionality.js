@@ -284,7 +284,7 @@ function FadeAudio(setting) {
     song.play();
     song.volume = 0;
     var fadeInInterval = setInterval(function(){
-      actualVolume = (parseFloat(actualVolume) + 0.1).toFixed(1);
+      actualVolume = (parseFloat(actualVolume) + 0.1).toFixed(.5);
       if(actualVolume <= 1){
           song.volume = actualVolume;
       } else {
