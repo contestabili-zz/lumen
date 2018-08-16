@@ -130,10 +130,20 @@ $(document).keydown(function(keyPressed) {
     }
 
     else if (sectionIndex == 3) {
+      if (videoSelection[0] = "hike") {
+        document.getElementById("section-video-1").classList.add('hide');
+      }
+      else if (videoSelection[0] = "city") {
+        document.getElementById("section-video-1").classList.add('hide');
+      }
+      
+      document.getElementById("section-blank").classList.remove('hide');
+      
+      sectionIndex = 1;
       videoPlaying = false;
       SubmitOff();
       FadeAudio("out");
-
+      
       var delayInMilliseconds = 5000;
       setTimeout(function() {
         location.reload();
@@ -221,7 +231,7 @@ $(document).ready(function(){
 //     if (kioskSelection[0] == "on") {
 //
 //       GetVideoSelection(videoSelection);
-//       videoSelection[0] = "hike";
+//       videoSelection[0] = "city";
 //
 //       setTimeout(function() {
 //         if (videoSelection[0] == "hike") {
